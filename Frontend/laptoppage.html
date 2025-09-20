@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/laptoppage.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/navbar.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+<body>
+      <header style="width: 96%;">
+      <div class="logo"><a href="index.html" style="text-decoration: none;color: #222;">DIGI</a></div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="laptoppage.html">Shop</a>
+        <a href="#">Your Cart</a>
+
+      </nav>
+
+      <div class="search">
+        <i class="ri-search-line"></i>
+        <input type="text" placeholder="Type for search" />
+      </div>
+
+      <div class="icons">
+        <i class="ri-heart-line"></i>
+        <i class="ri-user-line"></i>
+        <div style="position: relative">
+          <a href="#" class="cart-btn">
+            <i class="ri-shopping-bag-line"></i>
+            <span class="cart-badge">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+    <div class="banner">
+        <video autoplay muted loop class="myVideo">
+            <source src="public/laptopmv.mp4" type="video/mp4">
+        </video>
+        <div class="content">
+            <h1>
+                Laptops.!
+            </h1>
+
+        </div>
+    </div>
+
+
+<!-- best-sellers.html -->
+<div class="best-sellers-section">
+
+  
+  <div class="container">
+    <h1 class="section-title">Our Products</h1>
+    <div class="section-header">
+      <span>10 products</span>
+      <!-- <span>Sort by: Recommended &#9662;</span> -->
+       <select name="sort" id="sort">
+        <option value="featured">Featured</option>
+        <option value="lowtohigh">Price(Lowest First)</option>
+        <option value="hightolow">Price(Highest First)</option>
+        <option value="newarrivals">New Arrivals</option>
+      </select>
+    </div>
+    <div class="content-wrapper">
+      <!-- Filters -->
+<aside class="filter-sidebar">
+  <div class="filter-section">
+    <h3>Browse by</h3>
+    <ul class="filter-menu">
+      <li><a href="#" class="active">All Products</a></li>
+      <li><a href="#">Accessories</a></li>
+      <li><a href="#">Best Sellers</a></li>
+      <li><a href="#">Consoles</a></li>
+      <li><a href="#">Controllers</a></li>
+      <li><a href="#">Games</a></li>
+      <li><a href="#">On Sale</a></li>
+    </ul>
+  </div>
+
+  <div class="filter-section">
+    <h3>Filter by</h3>
+    <label for="priceRange">Price Range</label>
+    <input type="range" id="priceRange" min="24" max="1000" step="1">
+    <div class="price-values">
+      <span>₹10,000.00</span>
+      <span>₹2,00,000.00</span>
+    </div>
+  </div>
+</aside>
+
+      <!-- Products -->
+      <div class="products">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <img src="./public/laptop1.webp" alt="Apple MacBook Air">
+          <div class="product-name">Apple MacBook Air (15.3 inch, M4, 16GB, 512GB, macOS, Sky Blue)</div>
+          <div class="product-price">₹1,36,490.00</div>
+          <button class="cart-btn1">Add to Cart</button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <img src="./public/laptop2.webp" alt="ASUS TUF F16 Intel Core 5 210H Gaming Laptop">
+          <div class="product-name">ASUS TUF F16 Intel Core 5 210H Gaming Laptop</div>
+          <div class="product-price">
+            <span class="old-price">₹89,999.00</span><br>
+            <span>₹73,990.00</span>
+          </div>
+          <button class="cart-btn1">Add to Cart</button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card sale">
+          <span class="sale-tag">SALE</span>
+          <img src="./public/laptop3.webp" alt="HP OMEN 16-am0241TX Intel Core i7 14th Gen Gaming Laptop">
+          <div class="product-name">HP OMEN 16 Intel Core i7 14th Gen Gaming Laptop</div>
+          <div class="product-price">
+            <span>₹1,39,990.00</span>
+          </div>
+          <button class="cart-btn1">Add to Cart</button>
+        </div>
+        <!-- Product 4 -->
+        <div class="product-card">
+          <img src="./public/laptop4.webp" alt="SAMSUNG Galaxy Book5 360 Intel Core Ultra 7">
+          <div class="product-name">SAMSUNG Galaxy Book5 360 Intel Core Ultra 7 Touchscreen Laptop</div>
+          <div class="product-price">₹1,22,990.00</div>
+          <button class="cart-btn1">Add to Cart</button>
+        </div>
+        <!-- Product 5 -->
+        <div class="product-card">
+          <img src="./public/laptop5.webp" alt="DELL Inspiron 3530 Intel Core i5 13th Gen Thin and Light Laptop">
+          <div class="product-name">DELL Inspiron 3530 Intel Core i5 13th Gen Thin and Light Laptop</div>
+          <div class="product-price">₹61,990.00</div>
+          <button class="cart-btn1">Add to Cart</button>
+        </div>
+        <!-- Product 6 -->
+        <div class="product-card">
+          <img src="./public/laptop6.webp" alt="HP Victus 15-FA1411TX Intel Core i7 12th Gen Gaming Laptop">
+          <div class="product-name">HP Victus 15 Intel Core i7 12th Gen Gaming Laptop</div>
+          <div class="product-price">₹71,490.00</div>
+          <button class="cart-btn1">Add to Cart</button>
+        </div>
+        <!-- Product 7 -->
+        <div class="product-card sale">
+          <img src="./public/laptop7.webp" alt="HP 15-fd0492TU Intel Core i5 13th Gen Thin & Light Laptop">
+          <div class="product-name">HP 15 Intel Core i5 13th Gen Thin & Light Laptop</div>
+          <div class="product-price">
+            <span class="old-price">₹73,349.00</span><br>
+            <span>₹54,999.00</span>
+          </div>
+          <button class="cart-btn1">Add to Cart</button>
+      </div>
+      <!-- Product 8 -->
+      <div class="product-card">
+        <img src="./public/laptop8.webp" alt="Lenovo Ideapad 3 Intel Core i3 12th Gen Thin & Light Laptop">
+        <div class="product-name">Lenovo Ideapad 3 Intel Core i3 12th Gen Thin & Light Laptop</div>
+        <div class="product-price">₹32,990.00</div>
+        <button class="cart-btn1">Add to Cart</button>
+      </div>
+      <!-- Product 9 -->
+      <div class="product-card">
+        <img src="./public/laptop9.webp" alt="ASUS Vivobook 16 Intel Core i5 13th Gen Thin & Light Laptop">
+        <div class="product-name">ASUS Vivobook 16 Intel Core i5 13th Gen Thin & Light Laptop</div>
+        <div class="product-price">₹57,614.00</div>
+        <button class="cart-btn1">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- footer -->
+
+<footer>
+      <div class="footer-section">
+        <h2>DIGI</h2>
+        <p>
+          DIGI is more than just a tech store — it's a gateway to smarter
+          living. From cutting-edge smartphones and immersive audio gear to
+          sleek wearables and high-performance laptops.
+        </p>
+        <div class="social-icons">
+          <i class="fi fi-brands-facebook" style="color: black"></i>
+          <i class="fi fi-brands-twitter" style="color: black"></i>
+          <i class="fi fi-brands-youtube" style="color: black"></i>
+          <i class="fi fi-brands-pinterest" style="color: black"></i>
+          <i class="fi fi-brands-instagram" style="color: black"></i>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>QUICK LINKS</h3>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="aboutus.html">ABOUT</a></li>
+          <li><a href="terms&condition.html">Terms Of Use</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="earphonepage.html">Earphones</a></li>
+          <li><a href="watchpage.html">Watch</a></li>
+          <li><a href="laptoppage.html">Laptop</a></li>
+          <li><a href="consolepage.html">Consoles</a></li>
+         <li><a href="mobilepage.html">Mobiles</a></li>
+          <li><a href="speakerpage.html">Speakers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column footer-stay-connected">
+        <h3>Stay Connected</h3>
+        <input type="email" placeholder="Enter your email" />
+        <button>Subscribe</button>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 DIGI. All rights reserved.| Distributed by
+          <a href="index.html">DIGI</a>
+        </p>
+      </div>
+    </footer>
+
+</body>
+</html>

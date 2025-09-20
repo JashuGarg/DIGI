@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/mobilepage.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/navbar.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+<body>
+      <header style="width: 96%;">
+      <div class="logo"><a href="index.html" style="text-decoration: none;color: #222;">DIGI</a></div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="laptoppage.html">Shop</a>
+        <a href="#">Your Cart</a>
+
+      </nav>
+
+      <div class="search">
+        <i class="ri-search-line"></i>
+        <input type="text" placeholder="Type for search" />
+      </div>
+
+      <div class="icons">
+        <i class="ri-heart-line"></i>
+        <i class="ri-user-line"></i>
+        <div style="position: relative">
+          <a href="#" class="cart-btn">
+            <i class="ri-shopping-bag-line"></i>
+            <span class="cart-badge">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="banner">
+        <video autoplay muted loop class="myVideo">
+            <source src="public/mobilemv.mp4" type="video/mp4">
+        </video>
+        <div class="content">
+            <h1>
+                MOBILES?!
+            </h1>
+
+        </div>
+    </div>
+
+
+<!-- best-sellers.html -->
+<div class="best-sellers-section">
+
+  
+  <div class="container">
+    <h1 class="section-title">Our Products</h1>
+    <div class="section-header">
+      <span>10 products</span>
+      <!-- <span>Sort by: Recommended &#9662;</span> -->
+      <select name="sort" id="sort">
+        <option value="featured">Featured</option>
+        <option value="lowtohigh">Price(Lowest First)</option>
+        <option value="hightolow">Price(Highest First)</option>
+        <option value="newarrivals">New Arrivals</option>
+      </select>
+    </div>
+    <div class="content-wrapper">
+      <!-- Filters -->
+<aside class="filter-sidebar">
+  <div class="filter-section">
+    <h3>Browse by</h3>
+    <ul class="filter-menu">
+      <li><a href="#" class="active">All Products</a></li>
+      <li><a href="#">Accessories</a></li>
+      <li><a href="#">Best Sellers</a></li>
+      <li><a href="#">Consoles</a></li>
+      <li><a href="#">Controllers</a></li>
+      <li><a href="#">Games</a></li>
+      <li><a href="#">On Sale</a></li>
+    </ul>
+  </div>
+
+  <div class="filter-section">
+    <h3>Filter by</h3>
+    <label for="priceRange">Price Range</label>
+    <input type="range" id="priceRange" min="24" max="1000" step="1">
+    <div class="price-values">
+      <span>₹5,000.00</span>
+      <span>₹1,50,000.00</span>
+    </div>
+  </div>
+</aside>
+
+      <!-- Products -->
+      <div class="products">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <img src="./public/mobile1.webp" alt="Apple iPhone 16">
+          <div class="product-name">Apple iPhone 16 (128GB, Teal)</div>
+          <div class="product-price">₹73,490.00</div>
+          <button class="cart-btn1">Add to Cart</button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <img src="./public/mobile2.webp" alt="SAMSUNG Galaxy S25 Ultra 5G">
+          <div class="product-name">SAMSUNG Galaxy S25 Ultra 5G (12GB RAM, 256GB, Titanium Black)</div>
+          <div class="product-price">₹1,29,999.00</div>
+          <button class="cart-btn1">Add to Cart</button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card sale">
+          <span class="sale-tag">SALE</span>
+          <img src="./public/mobile3.webp" alt="oppo Reno13 5G">
+          <div class="product-name">Oppo Reno13 5G (8GB RAM, 128GB, Luminous Blue)</div>
+          <div class="product-price">
+            <span class="old-price">₹33,999.00</span>
+            <span>₹40,990.00</span>
+          </div>
+          <button class="cart-btn1">Add to Cart</button>
+        </div>
+        <!-- Product 4 -->
+        <div class="product-card">
+          <img src="./public/mobile4.webp" alt="Redmi Note 14 5G">
+          <div class="product-name">Redmi Note 14 5G (6GB RAM, 128GB, Titan Black)</div>
+          <div class="product-price">₹16,999.00</div>
+          <button class="cart-btn1">Add to Cart</button>
+        </div>
+        <!-- Product 5 -->
+        <div class="product-card">
+          <img src="./public/mobile5.webp" alt="Google Pixel 10 5G">
+          <div class="product-name">Google Pixel 10 5G (12GB RAM, 256GB, Obsidian)</div>
+          <div class="product-price">₹79,999.00</div>
+          <button class="cart-btn1">Add to Cart</button>
+        </div>
+        <!-- Product 6 -->
+        <div class="product-card">
+          <img src="./public/mobile6.webp" alt="SAMSUNG Galaxy A17 5G">
+          <div class="product-name">SAMSUNG Galaxy A17 5G (6GB RAM, 128GB, Black)</div>
+          <div class="product-price">₹18,999.00</div>
+          <button class="cart-btn1">Add to Cart</button>
+        </div>
+        <!-- Product 7 -->
+        <div class="product-card sale">
+          <img src="./public/mobile7.webp" alt="Apple iPhone 16 Pro">
+          <div class="product-name">Apple iPhone 16 Pro (256GB, Desert Titanium)</div>
+          <div class="product-price">
+            <span>₹1,22,900</span>
+          </div>
+          <button class="cart-btn1">Add to Cart</button>
+      </div>
+      <!-- Product 8 -->
+      <div class="product-card">
+        <img src="./public/mobile8.webp" alt="Nothing CMF Phone 1 5G">
+        <div class="product-name">Nothing CMF Phone 1 5G (6GB RAM, 128GB, Light Green)</div>
+        <div class="product-price">₹15,999.00</div>
+        <button class="cart-btn1">Add to Cart</button>
+      </div>
+      <!-- Product 9 -->
+      <div class="product-card">
+        <img src="./public/mobile9.webp" alt="vivo T3 Lite 5G">
+        <div class="product-name">Vivo T3 Lite 5G (6GB RAM, 128GB, Vibrant Green)</div>
+        <div class="product-price">₹11,499.00</div>
+        <button class="cart-btn1">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- footer -->
+
+<footer>
+      <div class="footer-section">
+        <h2>DIGI</h2>
+        <p>
+          DIGI is more than just a tech store — it's a gateway to smarter
+          living. From cutting-edge smartphones and immersive audio gear to
+          sleek wearables and high-performance laptops.
+        </p>
+        <div class="social-icons">
+          <i class="fi fi-brands-facebook" style="color: black"></i>
+          <i class="fi fi-brands-twitter" style="color: black"></i>
+          <i class="fi fi-brands-youtube" style="color: black"></i>
+          <i class="fi fi-brands-pinterest" style="color: black"></i>
+          <i class="fi fi-brands-instagram" style="color: black"></i>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>QUICK LINKS</h3>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="aboutus.html">ABOUT</a></li>
+          <li><a href="terms&condition.html">Terms Of Use</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="earphonepage.html">Earphones</a></li>
+          <li><a href="watchpage.html">Watch</a></li>
+          <li><a href="laptoppage.html">Laptop</a></li>
+          <li><a href="consolepage.html">Consoles</a></li>
+         <li><a href="mobilepage.html">Mobiles</a></li>
+          <li><a href="speakerpage.html">Speakers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column footer-stay-connected">
+        <h3>Stay Connected</h3>
+        <input type="email" placeholder="Enter your email" />
+        <button>Subscribe</button>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 DIGI. All rights reserved.| Distributed by
+          <a href="index.html">DIGI</a>
+        </p>
+      </div>
+    </footer>
+
+</body>
+</html>

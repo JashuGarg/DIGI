@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecommerce store</title>
+    <link rel="stylesheet" href="CSS/index.css" />
+    <link rel="stylesheet" href="CSS/footer.css" />
+    <link rel="stylesheet" href="CSS/navbar.css" />
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css"/>
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo"><a href="index.html" style="text-decoration: none;color: #222;">DIGI</a></div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="laptoppage.html">Shop</a>
+        <a href="#">Your Cart</a>
+
+      </nav>
+
+      <!-- <div class="search">
+        <i class="ri-search-line"></i>
+        <input type="text" placeholder="Type for search" />
+      </div> -->
+
+      <div class="icons">
+        <i class="ri-heart-line"></i>
+        <i class="ri-user-line"></i>
+        <div style="position: relative">
+          <a href="#" class="cart-btn">
+            <i class="ri-shopping-bag-line"></i>
+            <span class="cart-badge">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="left">
+        <h1>D I G I</h1>
+        <h2>DIGITAL PRODUCTS</h2>
+        <p>AT YOUR FINGERTIPS</p>
+      </div>
+      <div class="right">
+        <a href="laptoppage.html" class="btn">SHOP NOW</a>
+      </div>
+    </div>
+
+    <!-- -----------CATEGORIES---------- -->
+    <section class="grid">
+      <section class="row1">
+        <div class="card earphone">
+          <h4>Enjoy With</h4>
+          <h2>EARPHONE</h2>
+          <button onclick="window.location.href='earphonepage.html'">Browse</button>
+          <img src="public/h2.png" alt="Earphone" />
+        </div>
+
+        <div class="card watch">
+          <h4>New</h4>
+          <h2>WATCH</h2>
+          <button onclick="window.location.href='watchpage.html'">Browse</button>
+          <img src="public/watch.png" alt="Smart Watch" />
+        </div>
+
+        <div class="card laptop">
+          <h4>Trend Devices</h4>
+          <h2>LAPTOP</h2>
+          <button onclick="window.location.href='laptoppage.html'">Browse</button>
+          <img src="public/laptop.webp" style="width: 180px;" alt="Laptop" />
+        </div>
+      </section>
+
+      <section class="row2">
+        <div class="card console">
+          <h4>Best Gaming</h4>
+          <h2>CONSOLE</h2>
+          <button onclick="window.location.href='consolepage.html'">Browse</button>
+          <img src="public/console.png" style="width: 180px;" alt="Gaming Console" />
+        </div>
+
+        <div class="card mobile">
+          <h4>All New</h4>
+          <h2>Mobiles</h2>
+          <button onclick="window.location.href='mobilepage.html'">Browse</button>
+          <img src="public/mobile9.webp" alt="Mobile" />
+        </div>
+
+        <div class="card speaker">
+          <h4>New Amazon</h4>
+          <h2>SPEAKER</h2>
+          <button onclick="window.location.href='speakerpage.html'">Browse</button>
+          <img src="public/speaker1.png" alt="Speaker" />
+        </div>
+      </section>
+    </section>
+
+    <!-- ----OFFERS and BSET SELLERS------ -->
+    <section class="product-container" id="products">
+      <div class="offers">
+        
+        <img src="public/4b308cc1ca6cf75bafa149fcc1aa4168.jpeg" alt="offer1" id="stimg"/>
+     
+        <img src="public/laptop-promo-a4-design-template-22cfad7b6b0e6faa3fc7765de087d2ac_screen.jpg" alt=""/>
+      </div>
+      
+</map>
+
+      <div class="carousel-container">
+        <h2 id="text">Best Seller</h2>
+        <!-- Navigation arrows -->
+        <div class="nav-arrow prev-arrow">‹</div>
+        <div class="nav-arrow next-arrow">›</div>
+
+        <div class="carousel-track">
+          <!-- First set of slides -->
+          <div class="carousel-slide">
+            <div class="slide-img">
+              <img
+                src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&h=200&fit=crop"
+                alt="Smartphones"
+              />
+            </div>
+            <div class="slide-content">
+              <h2 class="product-name">Smartphones</h2>
+              <h1 class="product-price">₹5,999</h1>
+              <div class="btn-group">
+                <a href="#" class="btn1 btn-cart">Add to Cart</a>
+                <a href="#" class="btn1 btn-order">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="slide-img">
+              <img
+                src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&h=200&fit=crop"
+                alt="Laptops"
+              />
+            </div>
+            <div class="slide-content">
+              <h1 class="product-price">₹5,999</h1>
+              <h2 class="product-name">Laptops</h2>
+              <div class="btn-group">
+                <a href="#" class="btn1 btn-cart">Add to Cart</a>
+                <a href="#" class="btn1 btn-order">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="slide-img">
+              <img
+                src="https://images.unsplash.com/photo-1545454675-3531b543be5d?w=300&h=200&fit=crop"
+                alt="Speakers"
+              />
+            </div>
+            <div class="slide-content">
+              <h1 class="product-price">₹5,999</h1>
+              <h2 class="product-name">Speakers</h2>
+              <div class="btn-group">
+                <a href="#" class="btn1 btn-cart">Add to Cart</a>
+                <a href="#" class="btn1 btn-order">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="slide-img">
+              <img
+                src="https://images.unsplash.com/photo-1486401899868-0e435ed85128?w=300&h=200&fit=crop"
+                alt="Gaming Consoles"
+              />
+            </div>
+            <div class="slide-content">
+              <h1 class="product-price">₹5,999</h1>
+              <h2 class="product-name">Gaming Consoles</h2>
+              <div class="btn-group">
+                <a href="#" class="btn1 btn-cart">Add to Cart</a>
+                <a href="#" class="btn1 btn-order">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="slide-img">
+              <img
+                src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=300&h=200&fit=crop"
+                alt="Cameras"
+              />
+            </div>
+            <div class="slide-content">
+              <h1 class="product-price">₹5,999</h1>
+              <h2 class="product-name">Cameras</h2>
+              <div class="btn-group">
+                <a href="#" class="btn1 btn-cart">Add to Cart</a>
+                <a href="#" class="btn1 btn-order">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="slide-img">
+              <img
+                src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=200&fit=crop"
+                alt="Headphones"
+              />
+            </div>
+            <div class="slide-content">
+              <h1 class="product-price">₹2,499</h1>
+              <h2 class="product-name">Wireless Headphones</h2>
+              <div class="btn-group">
+                <a href="#" class="btn1 btn-cart">Add to Cart</a>
+                <a href="#" class="btn1 btn-order">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="slide-img">
+              <img
+                src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=300&h=200&fit=crop"
+                alt="Tablet"
+              />
+            </div>
+            <div class="slide-content">
+              <h1 class="product-price">₹14,999</h1>
+              <h2 class="product-name">Android Tablet</h2>
+              <div class="btn-group">
+                <a href="#" class="btn1 btn-cart">Add to Cart</a>
+                <a href="#" class="btn1 btn-order">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="slide-img">
+              <img
+                src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=200&fit=crop"
+                alt="Smartwatch"
+              />
+            </div>
+            <div class="slide-content">
+              <h1 class="product-price">₹5,999</h1>
+              <h2 class="product-name">Smartwatch</h2>
+              <div class="btn-group">
+                <a href="#" class="btn1 btn-cart">Add to Cart</a>
+                <a href="#" class="btn1 btn-order">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Duplicate slides for infinite loop effect -->
+          <div class="carousel-slide">
+            <div class="slide-img">
+              <img
+                src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&h=200&fit=crop"
+                alt="Smartphones"
+              />
+            </div>
+            <div class="slide-content">
+              <h1 class="product-price">₹5,999</h1>
+              <h2 class="product-name">Smartphones</h2>
+              <div class="btn-group">
+                <a href="#" class="btn1 btn-cart">Add to Cart</a>
+                <a href="#" class="btn1 btn-order">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="slide-img">
+              <img
+                src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&h=200&fit=crop"
+                alt="Laptops"
+              />
+            </div>
+            <div class="slide-content">
+              <h1 class="product-price">₹5,999</h1>
+              <h2 class="product-name">Laptops</h2>
+              <div class="btn-group">
+                <a href="#" class="btn1 btn-cart">Add to Cart</a>
+                <a href="#" class="btn1 btn-order">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="slide-img">
+              <img
+                src="https://images.unsplash.com/photo-1545454675-3531b543be5d?w=300&h=200&fit=crop"
+                alt="Speakers"
+              />
+            </div>
+            <div class="slide-content">
+              <h1 class="product-price">₹5,999</h1>
+              <h2 class="product-name">Speakers</h2>
+              <div class="btn-group">
+                <a href="#" class="btn1 btn-cart">Add to Cart</a>
+                <a href="#" class="btn1 btn-order">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="slide-img">
+              <img
+                src="https://images.unsplash.com/photo-1486401899868-0e435ed85128?w=300&h=200&fit=crop"
+                alt="Gaming Consoles"
+              />
+            </div>
+            <div class="slide-content">
+              <h1 class="product-price">₹5,999</h1>
+              <h2 class="product-name">Gaming Consoles</h2>
+              <div class="btn-group">
+                <a href="#" class="btn1 btn-cart">Add to Cart</a>
+                <a href="#" class="btn1 btn-order">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="slide-img">
+              <img
+                src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=300&h=200&fit=crop"
+                alt="Cameras"
+              />
+            </div>
+            <div class="slide-content">
+              <h1 class="product-price">₹5,999</h1>
+              <h2 class="product-name">Cameras</h2>
+              <div class="btn-group">
+                <a href="#" class="btn1 btn-cart">Add to Cart</a>
+                <a href="#" class="btn1 btn-order">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="slide-img">
+              <img
+                src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=200&fit=crop"
+                alt="Headphones"
+              />
+            </div>
+            <div class="slide-content">
+              <h1 class="product-price">₹2,499</h1>
+              <h2 class="product-name">Wireless Headphones</h2>
+              <div class="btn-group">
+                <a href="#" class="btn1 btn-cart">Add to Cart</a>
+                <a href="#" class="btn1 btn-order">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="slide-img">
+              <img
+                src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=300&h=200&fit=crop"
+                alt="Tablet"
+              />
+            </div>
+            <div class="slide-content">
+              <h1 class="product-price">₹14,999</h1>
+              <h2 class="product-name">Android Tablet</h2>
+              <div class="btn-group">
+                <a href="#" class="btn1 btn-cart">Add to Cart</a>
+                <a href="#" class="btn1 btn-order">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="slide-img">
+              <img
+                src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=200&fit=crop"
+                alt="Smartwatch"
+              />
+            </div>
+            <div class="slide-content">
+              <h1 class="product-price">₹5,999</h1>
+              <h2 class="product-name">Smartwatch</h2>
+              <div class="btn-group">
+                <a href="#" class="btn1 btn-cart">Add to Cart</a>
+                <a href="#" class="btn1 btn-order">Order Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------SERVICES------- -->
+
+    <section class="features-container">
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="icon-container">
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M3 12h18m-9-9v18" />
+              <path d="M8 21l4-7 4 7" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Curb-side Pickup</h3>
+          <p class="feature-description">
+            Convenient pickup service right at your location
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="icon-container">
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="3" y="11" width="18" height="10" rx="2" ry="2" />
+              <circle cx="12" cy="5" r="2" />
+              <path d="m12 7-2 4h4l-2-4" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Free Shipping</h3>
+          <p class="feature-description">
+            On all orders over <span class="highlight">$50</span>
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="icon-container">
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+          </div>
+          <h3 class="feature-title">Low Prices</h3>
+          <p class="feature-description">
+            Best prices <span class="highlight">guaranteed</span>
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="icon-container">
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12,6 12,12 16,14" />
+            </svg>
+          </div>
+          <h3 class="feature-title">24/7 Available</h3>
+          <p class="feature-description">Always here when you need us</p>
+        </div>
+      </div>
+    </section>
+
+    <!------------ HERO BANNER ----------->
+    <section class="hero-banner">
+      <div class="hero-content">
+        <h1>Smart Tech Collection</h1>
+        <p>
+          Discover the Smart Tech Collection—where innovation meets elegance.
+          From ultra-responsive smartwatches and noise-canceling earbuds to
+          AI-powered phones and sleek tablets, every gadget is designed to
+          elevate your lifestyle. Whether you're tracking fitness, managing your
+          day, or syncing your smart home, this collection keeps you connected,
+          efficient, and ahead of the curve. Smart never looked this good.
+        </p>
+        <a href="#" class="cta-button">SHOP COLLECTION</a>
+      </div>
+      <div class="hero-image">
+        <img src="public/Gemini_Generated_Image_gjb267gjb267gjb2.png" alt="Smart Gadgets" />
+      </div>
+    </section>
+
+    <!-- -----------BRAND LOGOS---------- -->
+    <section class="brand-section">
+      <div class="brand-slider">
+        <div class="brand-track">
+          <i class="fi fi-brands-apple"></i>
+          <i class="fi fi-brands-huawei"></i>
+          <i
+            class="fi fi-brands-samsung"
+            style="font-size: 80px; position: relative; top: -15px"
+          ></i>
+          <i
+            class="fi fi-brands-asus"
+            style="font-size: 80px; position: relative; top: -15px"
+          ></i>
+          <i
+            class="fi fi-brands-sony"
+            style="font-size: 80px; position: relative; top: -15px"
+          ></i>
+          <i class="fi fi-brands-intel"></i>
+          <i class="fi fi-brands-android"></i>
+          <i class="fi fi-brands-microsoft"></i>
+
+          <i class="fi fi-brands-apple"></i>
+          <i class="fi fi-brands-huawei"></i>
+          <i
+            class="fi fi-brands-samsung"
+            style="font-size: 80px; position: relative; top: -15px"
+          ></i>
+          <i
+            class="fi fi-brands-asus"
+            style="font-size: 80px; position: relative; top: -15px"
+          ></i>
+          <i
+            class="fi fi-brands-sony"
+            style="font-size: 80px; position: relative; top: -15px"
+          ></i>
+          <i class="fi fi-brands-intel"></i>
+          <i class="fi fi-brands-android"></i>
+          <i class="fi fi-brands-microsoft"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------TESTIMONIALS---------- -->
+    <section class="testimonial-section">
+      <h2>ONLY THE BEST</h2>
+      <h1>TESTIMONIALS</h1>
+      <div class="testimonial-carousel">
+        <div class="testimonial active">
+          <p>
+            "These are the best digital gadgets I've ever purchased! The quality
+            is outstanding, and the customer service is exceptional. Highly
+            recommend!"
+          </p>
+          <div class="client">
+            <img src="public/1.jpg" alt="Olivia Davis" />
+            <div>
+              <h4>Olivia Davis</h4>
+              <span>CLIENT</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <p>
+            "DIGI's selection of smart devices is unmatched. My new smartwatch
+            and earbuds are sleek, reliable, and arrived in perfect condition."
+          </p>
+          <div class="client">
+            <img src="public/rv3.jpg" alt="Arjun Mehta" />
+            <div>
+              <h4>Arjun Mehta</h4>
+              <span>CLIENT</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <p>
+            "I’ve never had such a smooth shopping experience. From browsing to
+            delivery, DIGI nailed it. Will definitely shop again!"
+          </p>
+          <div class="client">
+            <img src="public/rv2.jpg" alt="Sophia Patel" />
+            <div>
+              <h4>Sophia Patel</h4>
+              <span>CLIENT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------FOOTER---------->
+    <footer>
+      <div class="footer-section">
+        <h2>DIGI</h2>
+        <p>
+          DIGI is more than just a tech store — it's a gateway to smarter
+          living. From cutting-edge smartphones and immersive audio gear to
+          sleek wearables and high-performance laptops.
+        </p>
+        <div class="social-icons">
+          <i class="fi fi-brands-facebook" style="color: black"></i>
+          <i class="fi fi-brands-twitter" style="color: black"></i>
+          <i class="fi fi-brands-youtube" style="color: black"></i>
+          <i class="fi fi-brands-pinterest" style="color: black"></i>
+          <i class="fi fi-brands-instagram" style="color: black"></i>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>QUICK LINKS</h3>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="aboutus.html">ABOUT</a></li>
+          <li><a href="terms&condition.html">Terms Of Use</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="earphonepage.html">Earphones</a></li>
+          <li><a href="watchpage.html">Watch</a></li>
+          <li><a href="laptoppage.html">Laptop</a></li>
+          <li><a href="consolepage.html">Consoles</a></li>
+         <li><a href="mobilepage.html">Mobiles</a></li>
+          <li><a href="speakerpage.html">Speakers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column footer-stay-connected">
+        <h3>Stay Connected</h3>
+        <input type="email" placeholder="Enter your email" />
+        <button>Subscribe</button>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 DIGI. All rights reserved.| Distributed by
+          <a href="index.html">DIGI</a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const testimonials = document.querySelectorAll(".testimonial");
+      let index = 0;
+
+      setInterval(() => {
+        testimonials[index].classList.remove("active");
+        index = (index + 1) % testimonials.length;
+        testimonials[index].classList.add("active");
+      }, 4000);
+    </script>
+  </body>
+</html>

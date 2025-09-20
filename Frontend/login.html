@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="CSS/loginsignup.css">
+  <script src="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css"></script>
+
+</head>
+<body>
+  <div class="bg-circle circle1"></div>
+  <div class="bg-circle circle2"></div>
+
+  <div class="z-10 flex-grow-1 d-flex flex-column align-items-start">
+    <h1 class="fw-bold" style="font-size: 3.5rem;">Welcome Back .!</h1>
+    <div class="connector">
+      <div class="connector-line"></div>
+    </div>
+  </div>
+
+
+  <div class="signup-box shadow-lg">
+    <h2 class="h4 fw-semibold">Login</h2>
+    <p class="text-secondary small mb-4">Glad you are back.!</p>
+
+    <form class="mb-3 loginform" >
+
+      <div class="mb-3">
+        <input type="email" class="form-control rounded-3 py-2" id="email" placeholder="Email ">
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control rounded-3 py-2" id="password" placeholder="Password">
+      </div>
+    
+
+      <button type="submit" class="btn btn-gradient w-100 rounded-3 py-2">Login</button>
+    </form>
+
+    <!-- <div class="text-center text-secondary small mb-3">OR</div> -->
+
+
+    <!-- footer links -->
+    <div class="text-center text-secondary small">
+      <p>Don't have an account? <a href="Sign_up.html" class="text-primary">Signup</a></p>
+     
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<script>
+  let form = document.getElementsByClassName('loginform')[0];
+  
+  let email = document.getElementById('email');
+  let password = document.getElementById('password');
+
+  if(email.value == '' || password.value == '') {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+     
+     alert('Please fill all the fields');
+    })
+  }else{
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      window.location.href = 'index.html';
+    })
+  }
+</script>
+</html>

@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  min-height: 100rem;
+  margin: 0;
+  font-family: "Jost", Roboto, sans-serif;
+  color: #fff;
+  background-color: rgb(14, 14, 14);
+}
+
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.myVideo {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  filter: brightness(1.0);
+}
+
+.content {
+  font-family: "Karantina", system-ui;
+  font-size: 120%;
+  line-height: 0.8em;
+  text-shadow: 0 10px 50px #7b47f380;
+  text-decoration: underline;
+  margin-left: 70%;
+  margin-top: 40%;
+}
+
+h1 {
+  margin: 0;
+  font-size: 6em;
+  animation: animationBlur 5s linear infinite;
+}
+
+@keyframes animationBlur {
+  0% {
+    filter: blur(0);
+  }
+
+  80% {
+    filter: blur(0);
+  }
+
+  90% {
+    filter: blur(5px);
+  }
+
+  100% {
+    filter: blur(0);
+  }
+}
+
+.des {
+  rotate: -5deg;
+  text-align: left;
+}
+
+.filter-sidebar {
+  width: 270px;
+  background-color: #1c1c1e;
+  color: #fff;
+  padding: 30px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  border-right: 1px solid #333;
+  height: 450px;
+}
+
+.filter-section {
+  margin-bottom: 40px;
+}
+
+.filter-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #444;
+  padding-bottom: 5px;
+  color: #ccc;
+}
+
+.filter-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.filter-menu li {
+  margin: 10px 0;
+}
+
+.filter-menu a {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.filter-menu a:hover {
+  color: #6c63ff;
+}
+
+.filter-menu .active {
+  text-decoration: underline;
+  font-weight: bold;
+  color: #6c63ff;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin-top: 10px;
+  accent-color: #6c63ff;
+}
+
+.price-values {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 5px;
+}
+
+
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+  letter-spacing: -2px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.section-header select {
+  background: rgb(14, 14, 14);
+  border: none;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.content-wrapper {
+  margin-bottom: 50px;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.filters {
+  min-width: 180px;
+  background: #18121b;
+  border-radius: 16px;
+  padding: 24px;
+  margin-right: 24px;
+  height: 100%;
+}
+
+.filters h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.filter-group {
+  margin-bottom: 12px;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.filter-group select,
+.filter-group input[type="range"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background: #23171a;
+  color: #fff;
+}
+
+.apply-btn {
+  background: #a78bfa;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 0;
+  width: 100%;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.products {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.product-card {
+  background: #18121b;
+  border-radius: 16px;
+  min-width: 20px;
+  /* max-width: 340px; */
+  width: 200px;
+  padding: 32px 24px 24px;
+  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.product-card img {
+  width: 180px;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 24px;
+}
+
+.product-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.product-price {
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #bdbdbd;
+  margin-right: 8px;
+}
+
+.cart-btn1 {
+  background: #a78bfa;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 0;
+  width: 90%;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.sale-tag {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: #a78bfa;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 4px 16px;
+}

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>About Us</title>
+    <link rel="stylesheet" href="aboutus.css" />
+    <link rel="stylesheet" href="CSS/navbar.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+    /* margin-top: 10px; */
+  font-family: 'Josefin Sans', sans-serif;
+  background: #0d0d0d; /* Pure black wrapper background */
+  color: #fff;
+  padding: 100px 20px;
+  min-height: 100vh;
+}
+
+.wrapper h1 {
+  font-family: 'Allura', cursive;
+  font-size: 70px;
+  margin-bottom: 60px;
+  text-align: center;
+  color: #ffffff; /* Keep title simple white */
+}
+
+.team {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.team .team_member {
+  background: linear-gradient(160deg, #e9d5ff, #f5f3ff); /* light purple gradient */
+  width: 280px;
+  padding: 20px;
+  border-radius: 15px;
+  color: #222; /* Dark text for contrast */
+  box-shadow: 0 0 15px rgba(233, 213, 255, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team .team_member:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(233, 213, 255, 0.8);
+}
+
+.team .team_member h3 {
+  font-size: 24px;
+  margin-top: 20px;
+  color: #6d28d9; /* Medium purple for name */
+}
+
+.team .team_member p.role {
+  color: #555;
+  margin: 12px 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.team .team_member .team_img {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #d8b4fe, #f3e8ff); /* soft gradient border */
+}
+
+.team .team_member .team_img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+}
+
+
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <div class="logo"><a href="index.html" style="text-decoration: none;color: #222;">DIGI</a></div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="laptoppage.html">Shop</a>
+        <a href="#">Your Cart</a>
+
+      </nav>
+
+      <!-- <div class="search">
+        <i class="ri-search-line"></i>
+        <input type="text" placeholder="Type for search" />
+      </div> -->
+
+      <div class="icons">
+        <i class="ri-heart-line"></i>
+        <i class="ri-user-line"></i>
+        <div style="position: relative">
+          <a href="#" class="cart-btn">
+            <i class="ri-shopping-bag-line"></i>
+            <span class="cart-badge">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+   <div class="wrapper">
+  <h1>Meet Our Team</h1>
+  <div class="team">
+
+    <!-- Team Lead -->
+    <div class="team_member">
+      <div class="team_img">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+          alt="Team Lead"
+        />
+      </div>
+      <h3>Jashu Garg</h3>
+      <p class="role">Team Lead</p>
+      <p>
+        "As the team lead, Jashu coordinates development, integrations, and overall project management. 
+        He ensures that every component works together seamlessly and keeps the team focused on delivery."
+      </p>
+    </div>
+
+    <!-- Frontend 1 -->
+    <div class="team_member">
+      <div class="team_img">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+          alt="Frontend Designer"
+        />
+      </div>
+      <h3>Dhruv Gupta</h3>
+      <p class="role">Frontend Developer</p>
+      <p>
+        "Dhruv specializes in building responsive interfaces and clean designs. 
+        His work focuses on creating smooth user interactions and layouts that bring our ideas to life."
+      </p>
+    </div>
+
+    <!-- Frontend 2 -->
+    <div class="team_member">
+      <div class="team_img">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+          alt="Frontend Designer"
+        />
+      </div>
+      <h3>Dishant</h3>
+      <p class="role">Frontend Developer</p>
+      <p>
+        "Dishant works on enhancing user experience through structured code and modern design practices. 
+        He makes sure our web applications are both functional and visually consistent."
+      </p>
+    </div>
+
+    <!-- UI/PPT -->
+    <div class="team_member">
+      <div class="team_img">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+          alt="UI & Presentations"
+        />
+      </div>
+      <h3>Jai Rohilla</h3>
+      <p class="role">UI & Documentation</p>
+      <p>
+        "Jai is responsible for refining the user interface and creating clear, well-structured presentations. 
+        His work helps communicate our project effectively to both technical and non-technical audiences."
+      </p>
+    </div>
+
+  </div>
+</div>
+
+  <footer>
+      <div class="footer-section">
+        <h2>DIGI</h2>
+        <p>
+          DIGI is more than just a tech store — it's a gateway to smarter
+          living. From cutting-edge smartphones and immersive audio gear to
+          sleek wearables and high-performance laptops.
+        </p>
+        <div class="social-icons">
+          <i class="fi fi-brands-facebook" style="color: black"></i>
+          <i class="fi fi-brands-twitter" style="color: black"></i>
+          <i class="fi fi-brands-youtube" style="color: black"></i>
+          <i class="fi fi-brands-pinterest" style="color: black"></i>
+          <i class="fi fi-brands-instagram" style="color: black"></i>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>QUICK LINKS</h3>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="aboutus.html">ABOUT</a></li>
+          <li><a href="terms&condition.html">Terms Of Use</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="earphonepage.html">Earphones</a></li>
+          <li><a href="watchpage.html">Watch</a></li>
+          <li><a href="laptoppage.html">Laptop</a></li>
+          <li><a href="consolepage.html">Consoles</a></li>
+         <li><a href="mobilepage.html">Mobiles</a></li>
+          <li><a href="speakerpage.html">Speakers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column footer-stay-connected">
+        <h3>Stay Connected</h3>
+        <input type="email" placeholder="Enter your email" />
+        <button>Subscribe</button>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 DIGI. All rights reserved.| Distributed by
+          <a href="index.html">DIGI</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

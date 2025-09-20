@@ -1,0 +1,134 @@
+body {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  /* filter: blur(100px); */
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.circle1 {
+  width: 200px;
+  aspect-ratio: 1;
+  top: 2%;
+  right: 26%;
+  background: linear-gradient(to top right, #2563eb, #7c3aed);
+}
+
+.circle2 {
+  width: 170px;
+  aspect-ratio: 1;
+  bottom: 4%;
+  right: 5%;
+  background: linear-gradient(to top right, #7c3aed, #2563eb);
+}
+
+.signup-box {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 1rem;
+  padding: 2rem 2rem 2rem 2.5rem;
+  width: 400px;
+  height: 80vh;
+  border: 1px solid #6060604a;
+  border-right: 1px solid #60606070;
+  border-bottom: 1px solid #60606070;
+  /* max-width: 400px; */
+  backdrop-filter: blur(18px);
+  z-index: 10;
+  position: relative;
+  margin-right: 90px;
+  display: flex;
+  /* box-shadow: 0px 25px 45px rgb(86 73 73); */
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-control {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid #60606029;
+  border-right: 2px solid #5f64ac70;
+  border-bottom: 1px solid #6060604d;
+
+}
+
+.form-control::placeholder {
+  color: #aaa;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, .6);
+}
+
+.btn-gradient {
+  background: linear-gradient(to right, #3b82f6, #9333ea);
+  color: #fff;
+  border: none;
+}
+
+.btn-gradient:hover {
+  opacity: 0.9;
+}
+
+.social-icons img {
+  width: 32px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Connector wrapper */
+.connector {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  margin-top: 1rem;
+}
+
+.connector-line {
+  flex-grow: 1;
+  border-top: 1px dashed #aaa;
+}
+
+.connector {
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.connector-line {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  body {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
