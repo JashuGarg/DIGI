@@ -96,7 +96,7 @@
   </div>
 </aside>
 
-      <!-- Products -->
+      <!-- Products - add there all the products ADDHERE -->
       <div class="products">
         <!-- Product 1 -->
         <div class="product-card">
@@ -233,4 +233,24 @@
     </footer>
 
 </body>
+<script>
+fetch("/admin/items/earphones")
+  .then(res => res.json())
+  .then(data => {
+    const content = document.getElementById("products-container");
+    content.innerHTML = ""; 
+    data.forEach(item => {
+      const card = document.createElement("div");
+      card.classList.add("product-card");
+      card.innerHTML = `
+        <img src="${item.imageUrl || './public/default.webp'}" alt="${item.name}">
+        <div class="product-name">${item.name}</div>
+        <div class="product-price">₹${item.price}</div>
+        <button class="cart-btn1">Add to Cart</button>
+      `;
+      content.appendChild(card);
+    });
+  })
+  .catch(err => console.error("Error fetching items:", err));
+</script>
 </html>

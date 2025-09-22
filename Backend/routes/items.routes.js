@@ -1,5 +1,5 @@
 import express from "express"
-import { adminaddsitems } from "../controllers/items.controllers.js"
+import { adminaddsitems, earphones} from "../controllers/items.controllers.js"
 import { checkifuserexist } from "../middlewares/auth.js";
 
 
@@ -13,4 +13,8 @@ router
     })
     .post(adminaddsitems);
 
+
+router
+    .route("/items/earphones")
+    .get(earphones)
 export {router}

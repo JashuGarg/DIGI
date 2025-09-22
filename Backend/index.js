@@ -5,10 +5,8 @@ import { router as itemrouter } from "./routes/items.routes.js";
 import { Connectdb } from "./connect.js";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
-
 import path from "path";
 import { fileURLToPath } from "url";
-import { log } from "console";
 
 
 dotenv.config();

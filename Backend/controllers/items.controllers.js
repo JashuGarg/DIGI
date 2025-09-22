@@ -21,6 +21,7 @@ async function adminaddsitems(req, res) {
             price: body.price,
             discount: body.discount || 0,
             description: body.description,
+            category:body.category
         });
 
         return res.status(201).send({
@@ -60,8 +61,21 @@ async function sellingproducts(req,res){
    }
 }
 
+async function earphones(req,res){
+
+        try {
+            const earphones = await items.find({category:"laptop"})
+            console.log(earphones);
+            res.json(earphones);
+            
+        } catch (error) {
+            console.log( "earphones route error :",error );
+        }
+        
+}
 export {adminaddsitems,
-        sellingproducts
+        sellingproducts,
+        earphones
 }
 
 

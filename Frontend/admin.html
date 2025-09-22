@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/admin/additem" method="post">
+        <label>Name</label>
+            <input type="text" placeholder="Product name" name="name"> <br><br>
+        <label>Price</label>
+            <input type="text" placeholder="Sales Price" name="price"> <br><br>
+        <label>Description</label>
+            <input type="text" placeholder="Product description" name="description"> <br><br>
+        <label for="device">Category:</label>
+            <select id="device" name="category" required>
+                <option value="laptop">Laptop</option>
+                <option value="mobile">Mobile</option>
+                <option value="speaker">Speaker</option>
+                <option value="watch">Watch</option>
+                <option value="accessories">Accessories</option>
+                <option value="console">Console</option>
+            </select>
+
+    <button  type="submit" onclick=" window.location.href='Adminpanel.html'"> Submit</button>
+
+    </form>
+</body>
+</html>
