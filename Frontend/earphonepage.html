@@ -99,23 +99,23 @@
       <!-- Products - add there all the products ADDHERE -->
       <div class="products">
         <!-- Product 1 -->
-        <div class="product-card">
+        <!-- <div class="product-card">
           <img src="./public/eaarphone1.webp" alt="Apple AirPods 4 Active Noise Cancellation with Charging Case">
           <div class="product-name">Apple AirPods 4 Active Noise Cancellation with Charging Case</div>
           <div class="product-price">₹17,900.00</div>
           <button class="cart-btn1">Add to Cart</button>
-        </div>
+        </div> -->
 
         <!-- Product 2 -->
-        <div class="product-card">
+        <!-- <div class="product-card">
           <img src="./public/eaarphone2.webp" alt="OnePlus Nord Buds 3 Pro TWS Earbuds with Active Noise Cancellation">
           <div class="product-name">OnePlus Nord Buds 3 Pro TWS with Active Noise Cancellation</div>
           <div class="product-price">₹2,999.00</div>
           <button class="cart-btn1">Add to Cart</button>
-        </div>
+        </div> -->
 
         <!-- Product 3 -->
-        <div class="product-card sale">
+        <!-- <div class="product-card sale">
           <span class="sale-tag">SALE</span>
           <img src="./public/eaarphone3.webp" alt="SONY WH-1000XM5 Bluetooth Headphone with Mic">
           <div class="product-name">SONY WH-1000XM5 Bluetooth Headphone with Mic</div>
@@ -124,16 +124,16 @@
             <span>₹29,990.00</span>
           </div>
           <button class="cart-btn1">Add to Cart</button>
-        </div>
+        </div> -->
         <!-- Product 4 -->
-        <div class="product-card">
+        <!-- <div class="product-card">
           <img src="./public/eaarphone4.webp" alt="Nothing Buds Pro 2 TWS Earbuds with Active Noise Cancellation">
           <div class="product-name">Nothing Buds Pro 2 TWS Earbuds with Active Noise Cancellation</div>
           <div class="product-price">₹4,299.00</div>
           <button class="cart-btn1">Add to Cart</button>
-        </div>
+        </div> -->
         <!-- Product 5 -->
-        <div class="product-card">
+        <!-- <div class="product-card">
           <img src="./public/eaarphone5.webp" alt="Marshall Minor IV TWS Earbuds">
           <div class="product-name">Marshall Minor IV TWS Earbuds</div>
           <div class="product-price">
@@ -141,32 +141,32 @@
             <span>₹11,999.00</span>
           </div>
           <button class="cart-btn1">Add to Cart</button>
-        </div>
+        </div> -->
         <!-- Product 6 -->
-        <div class="product-card">
+        <!-- <div class="product-card">
           <img src="./public/eaarphone6.webp" alt="OnePlus Bullets Z3 Neckband with Environmental Noise Cancellation">
           <div class="product-name">OnePlus Bullets Z3 Neckband with Environmental Noise Cancellation</div>
           <div class="product-price">₹1,699.00</div>
           <button class="cart-btn1">Add to Cart</button>
-        </div>
+        </div> -->
         <!-- Product 7 -->
-        <div class="product-card sale">
+        <!-- <div class="product-card sale">
           <img src="./public/eaarphone7.webp" alt="OnePlus Buds 3 TWS Earbuds with Adaptive Noise Cancellation">
           <div class="product-name">OnePlus Buds 3 TWS Earbuds with Adaptive Noise Cancellation</div>
           <div class="product-price">
             <span>₹5,499.00</span>
           </div>
           <button class="cart-btn1">Add to Cart</button>
-      </div>
+      </div> -->
       <!-- Product 8 -->
-      <div class="product-card">
+      <!-- <div class="product-card">
         <img src="./public/eaarphone8.webp" alt="JBL Quantum 810 Bluetooth Gaming Headset with Active Noise Cancellation ">
         <div class="product-name">JBL Quantum 810 Bluetooth Gaming Headset with Active Noise Cancellation </div>
         <div class="product-price">₹4,994.00</div>
         <button class="cart-btn1">Add to Cart</button>
-      </div>
+      </div> -->
       <!-- Product 9 -->
-      <div class="product-card">
+      <!-- <div class="product-card">
         <img src="./public/eaarphone9.webp" alt="boAt BassHeads 100 Wired Earphone with Mic ">
         <div class="product-name">boAt BassHeads 100 Wired Earphone with Mic (In Ear, Black)</div>
         <div class="product-price">
@@ -174,7 +174,7 @@
             <span>₹349.00</span>
           </div>
         <button class="cart-btn1">Add to Cart</button>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -234,17 +234,21 @@
 
 </body>
 <script>
-fetch("/admin/items/earphones")
+ addEventListener("load", () => {
+   fetch("/admin/items/earphone")
   .then(res => res.json())
   .then(data => {
-    const content = document.getElementById("products-container");
+    const content = document.getElementsByClassName("products")[0];
+    console.log(data);
+    
     content.innerHTML = ""; 
     data.forEach(item => {
       const card = document.createElement("div");
       card.classList.add("product-card");
       card.innerHTML = `
         <img src="${item.imageUrl || './public/default.webp'}" alt="${item.name}">
-        <div class="product-name">${item.name}</div>
+        <div class="product-name">${item.itemname}</div>
+        <div class="product-name">${item.description}</div>
         <div class="product-price">₹${item.price}</div>
         <button class="cart-btn1">Add to Cart</button>
       `;
@@ -252,5 +256,6 @@ fetch("/admin/items/earphones")
     });
   })
   .catch(err => console.error("Error fetching items:", err));
+ })
 </script>
 </html>

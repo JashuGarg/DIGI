@@ -227,4 +227,29 @@
     </footer>
 
 </body>
+<script>
+   addEventListener("load", () => {
+   fetch("/admin/items/mobile")
+  .then(res => res.json())
+  .then(data => {
+    const content = document.getElementsByClassName("products")[0];
+    console.log(data);
+    
+    content.innerHTML = ""; 
+    data.forEach(item => {
+      const card = document.createElement("div");
+      card.classList.add("product-card");
+      card.innerHTML = `
+        <img src="${item.imageUrl || './public/default.webp'}" alt="${item.name}">
+        <div class="product-name">${item.itemname}</div>
+        <div class="product-name">${item.description}</div>
+        <div class="product-price">₹${item.price}</div>
+        <button class="cart-btn1">Add to Cart</button>
+      `;
+      content.appendChild(card);
+    });
+  })
+  .catch(err => console.error("Error fetching items:", err));
+ })
+</script>
 </html>

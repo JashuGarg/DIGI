@@ -21,7 +21,7 @@ const itemSchema = new mongoose.Schema({
     },
     category:{
         type :String,
-        enum: ["mobile", "laptop", "speaker","watch","console","accessories"]
+        enum: ["mobile", "laptop", "speaker","watch","console","earphone"]
     },
     specs: {
         type:Object

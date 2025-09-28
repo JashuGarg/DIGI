@@ -95,9 +95,13 @@
   </div>
 </aside>
 
-      <!-- Products -->
-      <div class="products">
-        <!-- Product 1 -->
+<div class="products">
+
+</div>
+
+      <!-- Products 
+    <div class="products">
+      
         <div class="product-card">
           <img src="./public/laptop1.webp" alt="Apple MacBook Air">
           <div class="product-name">Apple MacBook Air (15.3 inch, M4, 16GB, 512GB, macOS, Sky Blue)</div>
@@ -105,7 +109,7 @@
           <button class="cart-btn1">Add to Cart</button>
         </div>
 
-        <!-- Product 2 -->
+     
         <div class="product-card">
           <img src="./public/laptop2.webp" alt="ASUS TUF F16 Intel Core 5 210H Gaming Laptop">
           <div class="product-name">ASUS TUF F16 Intel Core 5 210H Gaming Laptop</div>
@@ -116,7 +120,7 @@
           <button class="cart-btn1">Add to Cart</button>
         </div>
 
-        <!-- Product 3 -->
+       
         <div class="product-card sale">
           <span class="sale-tag">SALE</span>
           <img src="./public/laptop3.webp" alt="HP OMEN 16-am0241TX Intel Core i7 14th Gen Gaming Laptop">
@@ -126,28 +130,28 @@
           </div>
           <button class="cart-btn1">Add to Cart</button>
         </div>
-        <!-- Product 4 -->
+     
         <div class="product-card">
           <img src="./public/laptop4.webp" alt="SAMSUNG Galaxy Book5 360 Intel Core Ultra 7">
           <div class="product-name">SAMSUNG Galaxy Book5 360 Intel Core Ultra 7 Touchscreen Laptop</div>
           <div class="product-price">₹1,22,990.00</div>
           <button class="cart-btn1">Add to Cart</button>
         </div>
-        <!-- Product 5 -->
+    
         <div class="product-card">
           <img src="./public/laptop5.webp" alt="DELL Inspiron 3530 Intel Core i5 13th Gen Thin and Light Laptop">
           <div class="product-name">DELL Inspiron 3530 Intel Core i5 13th Gen Thin and Light Laptop</div>
           <div class="product-price">₹61,990.00</div>
           <button class="cart-btn1">Add to Cart</button>
         </div>
-        <!-- Product 6 -->
+   
         <div class="product-card">
           <img src="./public/laptop6.webp" alt="HP Victus 15-FA1411TX Intel Core i7 12th Gen Gaming Laptop">
           <div class="product-name">HP Victus 15 Intel Core i7 12th Gen Gaming Laptop</div>
           <div class="product-price">₹71,490.00</div>
           <button class="cart-btn1">Add to Cart</button>
         </div>
-        <!-- Product 7 -->
+ 
         <div class="product-card sale">
           <img src="./public/laptop7.webp" alt="HP 15-fd0492TU Intel Core i5 13th Gen Thin & Light Laptop">
           <div class="product-name">HP 15 Intel Core i5 13th Gen Thin & Light Laptop</div>
@@ -157,21 +161,21 @@
           </div>
           <button class="cart-btn1">Add to Cart</button>
       </div>
-      <!-- Product 8 -->
+
       <div class="product-card">
         <img src="./public/laptop8.webp" alt="Lenovo Ideapad 3 Intel Core i3 12th Gen Thin & Light Laptop">
         <div class="product-name">Lenovo Ideapad 3 Intel Core i3 12th Gen Thin & Light Laptop</div>
         <div class="product-price">₹32,990.00</div>
         <button class="cart-btn1">Add to Cart</button>
       </div>
-      <!-- Product 9 -->
+
       <div class="product-card">
         <img src="./public/laptop9.webp" alt="ASUS Vivobook 16 Intel Core i5 13th Gen Thin & Light Laptop">
         <div class="product-name">ASUS Vivobook 16 Intel Core i5 13th Gen Thin & Light Laptop</div>
         <div class="product-price">₹57,614.00</div>
         <button class="cart-btn1">Add to Cart</button>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 <!-- footer -->
@@ -229,4 +233,29 @@
     </footer>
 
 </body>
+<script>
+   addEventListener("load", () => {
+   fetch("/admin/items/laptop")
+  .then(res => res.json())
+  .then(data => {
+    const content = document.getElementsByClassName("products")[0];
+    console.log(data);
+    
+    content.innerHTML = ""; 
+    data.forEach(item => {
+      const card = document.createElement("div");
+      card.classList.add("product-card");
+      card.innerHTML = `
+        <img src="${item.imageUrl || './public/default.webp'}" alt="${item.name}">
+        <div class="product-name">${item.itemname}</div>
+        <div class="product-name">${item.description}</div>
+        <div class="product-price">₹${item.price}</div>
+        <button class="cart-btn1">Add to Cart</button>
+      `;
+      content.appendChild(card);
+    });
+  })
+  .catch(err => console.error("Error fetching items:", err));
+ })
+</script>
 </html>

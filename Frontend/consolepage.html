@@ -95,10 +95,13 @@
     </div>
   </div>
 </aside>
+    <div class="products">
 
+    </div>
       <!-- Products -->
-      <div class="products">
-        <!-- Product 1 -->
+      <!-- <div class="products">
+
+      
         <div class="product-card">
           <img src="./public/console1.webp" alt="SONY PlayStation 5 1TB SSD Digital Slim Gaming Console">
           <div class="product-name">SONY PlayStation 5 1TB SSD Digital Slim Gaming Console</div>
@@ -106,7 +109,7 @@
           <button class="cart-btn1">Add to Cart</button>
         </div>
 
-        <!-- Product 2 -->
+   
         <div class="product-card sale">
           <span class="sale-tag">SALE</span>
           <img src="./public/console2.webp" alt="AMKETTE EvoFox 32GB SSD Gaming Console">
@@ -117,7 +120,7 @@
           <button class="cart-btn1">Add to Cart</button>
         </div>
 
-        <!-- Product 3 -->
+    
         <div class="product-card">
           <img src="./public/console3.webp" alt="SONY DualSense Wireless Controller for Playstation 5 ">
           <div class="product-name">SONY DualSense Wireless Controller for Playstation 5 </div>
@@ -126,14 +129,14 @@
           </div>
           <button class="cart-btn1">Add to Cart</button>
         </div>
-        <!-- Product 4 -->
+  
         <div class="product-card">
           <img src="./public/console4.webp" alt="logitech G29 Driving Force Wired Controller">
           <div class="product-name">Logitech G29 Driving Force Wired Controller For PS5</div>
           <div class="product-price">₹32,995</div>
           <button class="cart-btn1">Add to Cart</button>
         </div>
-        <!-- Product 5 -->
+   
         <div class="product-card sale">
           <span class="sale-tag">SALE</span>
           <img src="./public/console5.webp" alt="Logitech Driving Force Shifter Motion Controller">
@@ -144,14 +147,14 @@
           </div>
           <button class="cart-btn1">Add to Cart</button>
         </div>
-        <!-- Product 6 -->
+  
         <div class="product-card">
           <img src="./public/console6.webp" alt="SONY Portal Wireless Gaming Controller for PlayStation 5">
           <div class="product-name">SONY Portal Wireless Gaming Controller for PlayStation 5</div>
           <div class="product-price">₹18,990.00</div>
           <button class="cart-btn1">Add to Cart</button>
         </div>
-        <!-- Product 7 -->
+     
         <div class="product-card sale">
           <img src="./public/console7.png" alt="Nintendo Switch™ 2 + Mario Kart™ World Bundle">
           <div class="product-name">Nintendo Switch™ 2 + Mario Kart™ World Bundle</div>
@@ -160,14 +163,14 @@
           </div>
           <button class="cart-btn1">Add to Cart</button>
       </div>
-      <!-- Product 8 -->
+
       <div class="product-card">
         <img src="./public/console8.png" alt="Microsoft Xbox Series X/S Wireless Controller Carbon Black">
         <div class="product-name">Microsoft Xbox Series X/S Wireless Controller Carbon Black</div>
         <div class="product-price">₹5,490.00</div>
         <button class="cart-btn1">Add to Cart</button>
       </div>
-      <!-- Product 9 -->
+
       <div class="product-card sale">
           <span class="sale-tag">SALE</span>
         <img src="./public/console9.png" alt="Xbox Series X – 1 TB Carbon Black">
@@ -178,7 +181,7 @@
           </div>
         <button class="cart-btn1">Add to Cart</button>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 <!-- footer -->
@@ -236,4 +239,29 @@
     </footer>
 
 </body>
+<script>
+   addEventListener("load", () => {
+   fetch("/admin/items/console")
+  .then(res => res.json())
+  .then(data => {
+    const content = document.getElementsByClassName("products")[0];
+    console.log(data);
+    
+    content.innerHTML = ""; 
+    data.forEach(item => {
+      const card = document.createElement("div");
+      card.classList.add("product-card");
+      card.innerHTML = `
+        <img src="${item.imageUrl || './public/default.webp'}" alt="${item.name}">
+        <div class="product-name">${item.itemname}</div>
+        <div class="product-name">${item.description}</div>
+        <div class="product-price">₹${item.price}</div>
+        <button class="cart-btn1">Add to Cart</button>
+      `;
+      content.appendChild(card);
+    });
+  })
+  .catch(err => console.error("Error fetching items:", err));
+ })
+</script>
 </html>
