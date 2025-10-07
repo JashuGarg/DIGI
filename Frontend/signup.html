@@ -60,7 +60,7 @@
   let email = document.getElementById('email');
   let confirmPassword = document.getElementById('confirm-password');
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit',async (e) => {
     e.preventDefault();
 
     if (username.value === '' || password.value === '' || email.value === '' || confirmPassword.value === '') {
@@ -73,8 +73,24 @@
       return;
     }
 
+    try {
+      const res = await fetch("http://localhost:3000/users/api/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username: username.value,
+        password: password.value,
+        email: email.value
+      }),
+      credentials: "include"
+    });
+
+    } catch (error) {
+      console.log("err in signup route: ", error );
+      
+    }
     // Success → redirect
-    window.location.href = 'index.html';
+    window.location.href = 'login.html';
   });
 </script>
 </html>

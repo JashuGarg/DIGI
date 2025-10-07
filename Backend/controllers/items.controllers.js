@@ -133,8 +133,8 @@ async function addtocart(req,res) {
     const body = req.body;
     const user = getUser(req.cookies?.usercredentials);
 
-//    res.send(`add to cart body : ${body.productId} \n  add to cart user ${user._id}\n headers : ${req.headers}`);
-    // console.log("add to cart user:", user);
+//res.send(`add to cart body : ${body.productId} \n  add to cart user ${user._id}\n headers : ${req.headers}`);
+// console.log("add to cart user:", user);
 
     const userdetail  = await users.findOne({_id:user._id});
     userdetail.orders.push(body.productId);
