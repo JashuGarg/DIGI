@@ -1,6 +1,6 @@
 import { items } from "../models/items.models.js";
 import { users } from "../models/users.models.js";
-
+import { getUser } from "../utils/auth.js";
 
 
 async function adminaddsitems(req, res) {
@@ -125,6 +125,23 @@ async function speakers(req,res) {
         console.log("Mobiles Get error:  ",error);
     }
 }
+
+
+
+async function addtocart(req,res) {
+    
+    const body = req.body;
+    const user = getUser(req.cookies?.usercredentials);
+
+//    res.send(`add to cart body : ${body.productId} \n  add to cart user ${user._id}\n headers : ${req.headers}`);
+    // console.log("add to cart user:", user);
+
+    const userdetail  = await users.findOne({_id:user._id});
+    userdetail.orders.push(body.productId);
+    await userdetail.save();
+    
+    
+}
 export {adminaddsitems,
         sellingproducts,
         laptop,
@@ -132,7 +149,8 @@ export {adminaddsitems,
         console,
         earphones,
         watches,
-        mobile
+        mobile,
+        addtocart
 }
 
 

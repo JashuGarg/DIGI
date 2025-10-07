@@ -1,7 +1,7 @@
 import express from "express";
 import { checkifuserexist } from "../middlewares/auth.js";
 import { userlogin, usersignup, getusercart } from "../controllers/users.controller.js";
-import { sellingproducts } from "../controllers/items.controllers.js";
+import { sellingproducts,addtocart } from "../controllers/items.controllers.js";
 const router = express.Router();
 
 
@@ -40,5 +40,10 @@ router
 router 
     .route("/cart")
     .get(checkifuserexist,getusercart);
+
+router
+    .route("/addtocart")
+    .get((req,res)=>{res.send("Hi")})
+    .post(addtocart)
 
 export {router}
