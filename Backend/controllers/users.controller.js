@@ -62,7 +62,7 @@ async function userlogin(req,res) {
        
        res.cookie("usercredentials",token) ;
        
-        res.status(200).send({
+        res.status(200).send({ 
             mssg:`User logined`,
             status : "Succesfull"
         });
@@ -73,7 +73,7 @@ async function userlogin(req,res) {
             status : "UnSuccesfull"
         })
 }
-
+                                      
 async function getusercart(req, res) {
     const user = await users.findOne({ email: req.user.email });
 
@@ -86,7 +86,7 @@ async function getusercart(req, res) {
 
    try {
     
-         const arry = user.orders;
+        const arry = user.orders;
         const cartItems = [];
         for (let i = 0; i < arry.length; i++) {
             let item = await items.findOne({ _id: arry[i] });
@@ -105,7 +105,6 @@ async function getusercart(req, res) {
         return res.status(500).send({
             mssg: `Error : ${error}`,
             status: "unsuccessful",
-           
         });
    }
 }

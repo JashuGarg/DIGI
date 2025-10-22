@@ -3,12 +3,13 @@ import { users } from "../models/users.models.js";
 import { getUser } from "../utils/auth.js";
 
 
+
 async function adminaddsitems(req, res) {
     const body = req.body;
-    // console.log(body);
-    
 
-    if (!body || !body.name || !body.price) {
+    const file = req.file;
+
+    if (!body || !body.name || !body.price ) {
         return res.status(404).send({
             mssg: `All fields and image are compulsory`,
             status: "UnSuccessful"
@@ -16,12 +17,15 @@ async function adminaddsitems(req, res) {
     }
 
     try {
+        const imageUrl = `http://localhost:3000/public/${file.filename}`;
+
         const item = await items.create({
             itemname: body.name,
             price: body.price,
             discount: body.discount || 0,
             description: body.description,
-            category:body.category
+            category: body.category,
+            imageUrl: imageUrl 
         });
 
         return res.status(201).send({
@@ -37,6 +41,7 @@ async function adminaddsitems(req, res) {
         });
     }
 }
+
 
 
 async function sellingproducts(req,res){

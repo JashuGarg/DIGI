@@ -14,32 +14,92 @@
 </head>
 <body>
       <header style="width: 96%;">
-      <div class="logo"><a href="index.html" style="text-decoration: none;color: #222;">DIGI</a></div>
+    <div class="logo"><a href="index.html" style="text-decoration: none;color: #222;">DIGI</a></div>
 
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="laptoppage.html">Shop</a>
-        <a href="#">Your Cart</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="laptoppage.html">Shop</a>
+      <a href="#">Your Cart</a>
+    </nav>
 
-      </nav>
+    <div class="icons">
+      <i class="ri-heart-line"></i>
+      <i class="ri-user-line"></i>
+      <div class="cart-container">
+        <a href="#" class="cart-btn">
+          <i class="ri-shopping-bag-line"></i>
+          <span class="cart-badge" id="cartBadge">3</span>
+        </a>
 
-      <div class="search">
-        <i class="ri-search-line"></i>
-        <input type="text" placeholder="Type for search" />
-      </div>
+        <!-- Cart Dropdown -->
+        <div class="cart-dropdown">
+          <div class="cart-header">Shopping Cart</div>
 
-      <div class="icons">
-        <i class="ri-heart-line"></i>
-        <i class="ri-user-line"></i>
-        <div style="position: relative">
-          <a href="#" class="cart-btn">
-            <i class="ri-shopping-bag-line"></i>
-            <span class="cart-badge">0</span>
-          </a>
+          <div class="cart-items" id="cartItems">
+            <!-- Sample cart items -->
+            <div class="cart-item">
+              <div class="cart-item-image">
+                <img src="./public/mobile2.webp" alt="SAMSUNG Galaxy S25 Ultra 5G">
+              </div>
+              <div class="cart-item-details">
+                <div class="cart-item-name">SAMSUNG Galaxy S25 Ultra 5G (12GB RAM, 256GB, Titanium Black)</div>
+                <div class="cart-item-price">₹1,29,999.00</div>
+                <div class="cart-item-quantity">
+                  <button class="qty-btn">-</button>
+                  <span class="qty-value">1</span>
+                  <button class="qty-btn">+</button>
+                </div>
+              </div>
+              <button class="remove-btn"><i class="ri-close-line"></i></button>
+            </div>
+
+            <div class="cart-item">
+              <div class="cart-item-image">
+                <img src="./public/eaarphone1.webp" alt="Apple AirPods 4 Active Noise Cancellation with Charging Case">
+              </div>
+              <div class="cart-item-details">
+                <div class="cart-item-name">Apple AirPods 4 Active Noise Cancellation with Charging Case</div>
+                <div class="cart-item-price">₹17,900.00</div>
+                <div class="cart-item-quantity">
+                  <button class="qty-btn">-</button>
+                  <span class="qty-value">2</span>
+                  <button class="qty-btn">+</button>
+                </div>
+              </div>
+              <button class="remove-btn"><i class="ri-close-line"></i></button>
+            </div>
+
+            <div class="cart-item">
+              <div class="cart-item-image">
+                <img src="./public/laptop1.webp" alt="Apple MacBook Air">
+              </div>
+              <div class="cart-item-details">
+                <div class="cart-item-name">Apple MacBook Air (15.3 inch, M4, 16GB, 512GB, macOS, Sky Blue)</div>
+                <div class="cart-item-price">₹1,36,490.00</div>
+                <div class="cart-item-quantity">
+                  <button class="qty-btn">-</button>
+                  <span class="qty-value">1</span>
+                  <button class="qty-btn">+</button>
+                </div>
+              </div>
+              <button class="remove-btn"><i class="ri-close-line"></i></button>
+            </div>
+          </div>
+
+          <div class="cart-footer">
+            <div class="cart-total">
+              <span class="cart-total-label">Total:</span>
+              <span class="cart-total-amount" id="cartTotal">$2,377.00</span>
+            </div>
+            <div class="cart-actions">
+              <button class="cart-btn-action cart-btn-secondary">View Cart</button>
+              <button class="cart-btn-action cart-btn-primary">Checkout</button>
+            </div>
+          </div>
         </div>
       </div>
-    </header>
-
+    </div>
+  </header>
     <div class="banner">
         <video autoplay muted loop class="myVideo">
             <source src="" type="video/mp4">
@@ -236,23 +296,23 @@
 <script>
 addEventListener("load", () => {
   const productsContainer = document.querySelector(".products");
+  const searchInput = document.querySelector(".search input");
 
-  // Fetch and render products
   fetch("/admin/items/earphone")
     .then(res => res.json())
     .then(data => {
-      productsContainer.innerHTML = ""; 
-
+      productsContainer.innerHTML = "";
       data.forEach(item => {
         const card = document.createElement("div");
-        card.classList.add("product-card")
+        card.classList.add("product-card");
         card.setAttribute("data-id", item._id);
-        
-        // card.setAttribute("data-id", item._id);
+        card.setAttribute("data-name", item.itemname.toLowerCase());
+        card.setAttribute("data-description", (item.description || "").toLowerCase());
+
         card.innerHTML = `
-          <img src="${item.imageUrl || './public/default.webp'}" alt="${item.name}">
+          <img src="${item.imageUrl || './public/default.webp'}" alt="${item.itemname}">
           <div class="product-name">${item.itemname}</div>
-          <div class="product-name">${item.description}</div>
+          <div class="product-name">${item.description || ""}</div>
           <div class="product-price">₹${item.price}</div>
           <button class="cart-btn">Add to Cart</button>
         `;
@@ -261,28 +321,43 @@ addEventListener("load", () => {
     })
     .catch(err => console.error("Error fetching items:", err));
 
+  searchInput.addEventListener("input", (e) => {
+    const searchbar = e.target.value.toLowerCase();
+    const productcards = productsContainer.querySelectorAll(".product-card");
+
+    productcards.forEach(card => {
+      const productname = card.getAttribute("data-name");
+
+      if (productname.includes(serachbar)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+
   productsContainer.addEventListener("click", async (e) => {
-  const button = e.target.closest(".cart-btn");
-  if (!button) return;
+    const button = e.target.closest(".cart-btn");
+    if (!button) return;
+
     const productCard = button.closest(".product-card");
     const productId = productCard.getAttribute("data-id");
-  console.log("Clicked productId:", productId);
+    console.log("Clicked productId:", productId);
 
-  try {
-    const res = await fetch("/users/addtocart", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ productId })
-    });
-
-    const data = await res.json();
-    console.log("Data fetch from users addtoCart:", data);
-  } catch (err) {
-    console.log(err);
-  }
-});
-
+    try {
+      const res = await fetch("/users/addtocart", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ productId })
+      });
+      const data = await res.json();
+      console.log("Added to cart:", data);
+    } catch (error) {
+      console.error(error);
+    }
+  });
 });
 </script>
+
 
 </html>

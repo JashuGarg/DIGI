@@ -7,24 +7,25 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
+import multer from "multer";
 
 
 dotenv.config();
 const url = process.env.MONGOURL;
 const port = process.env.PORT;
 const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //middlewares
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
 app.use(cookieParser());
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 
 
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 Connectdb(url).then(()=>{
     console.log("DataBase connected succesfully");

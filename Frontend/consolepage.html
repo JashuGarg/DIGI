@@ -240,28 +240,55 @@
 
 </body>
 <script>
-   addEventListener("load", () => {
-   fetch("/admin/items/console")
-  .then(res => res.json())
-  .then(data => {
-    const content = document.getElementsByClassName("products")[0];
-    console.log(data);
-    
-    content.innerHTML = ""; 
-    data.forEach(item => {
-      const card = document.createElement("div");
-      card.classList.add("product-card");
-      card.innerHTML = `
-        <img src="${item.imageUrl || './public/default.webp'}" alt="${item.name}">
-        <div class="product-name">${item.itemname}</div>
-        <div class="product-name">${item.description}</div>
-        <div class="product-price">₹${item.price}</div>
-        <button class="cart-btn1">Add to Cart</button>
-      `;
-      content.appendChild(card);
+addEventListener("load", () => {
+  const productsContainer = document.querySelector(".products");
+
+  // Fetch and render products
+  fetch("/admin/items/console")
+    .then(res => res.json())
+    .then(data => {
+      productsContainer.innerHTML = ""; 
+
+      data.forEach(item => {
+        const card = document.createElement("div");
+        card.classList.add("product-card")
+        card.setAttribute("data-id", item._id);
+        
+        // card.setAttribute("data-id", item._id);
+        card.innerHTML = `
+          <img src="${item.imageUrl || './public/default.webp'}" alt="${item.name}">
+          <div class="product-name">${item.itemname}</div>
+          <div class="product-name">${item.description}</div>
+          <div class="product-price">₹${item.price}</div>
+          <button class="cart-btn">Add to Cart</button>
+        `;
+        productsContainer.appendChild(card);
+      });
+    })
+    .catch(err => console.error("Error fetching items:", err));
+
+  productsContainer.addEventListener("click", async (e) => {
+  const button = e.target.closest(".cart-btn");
+  if (!button) return;
+    const productCard = button.closest(".product-card");
+    const productId = productCard.getAttribute("data-id");
+  console.log("Clicked productId:", productId);
+
+  try {
+    const res = await fetch("/users/addtocart", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ productId })
     });
-  })
-  .catch(err => console.error("Error fetching items:", err));
- })
+
+    const data = await res.json();
+    console.log("Data fetch from users addtoCart:", data);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+});
 </script>
+
 </html>

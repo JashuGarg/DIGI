@@ -1,7 +1,7 @@
 import express from "express"
 import { adminaddsitems, laptop,speakers, console, earphones,watches,mobile} from "../controllers/items.controllers.js"
 import { checkifuserexist } from "../middlewares/auth.js";
-
+import upload from "../utils/multerconfig.js";
 
 const router = express.Router();
 
@@ -11,7 +11,7 @@ router
     .get( checkifuserexist,(req,res) => {
         res.send("working add items")
     })
-    .post(adminaddsitems);
+    .post(upload.single('image'),adminaddsitems);
 
 
 router

@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Item</title>
 </head>
 <body>
-    <form action="/admin/additem" method="post">
-        <label>Name</label>
-            <input type="text" placeholder="Product name" name="name"> <br><br>
-        <label>Price</label>
-            <input type="text" placeholder="Sales Price" name="price"> <br><br>
-        <label>Description</label>
-            <input type="text" placeholder="Product description" name="description"> <br><br>
-        <label for="device">Category:</label>
-            <select id="device" name="category" required>
-                <option value="laptop">Laptop</option>
-                <option value="mobile">Mobile</option>
-                <option value="speaker">Speaker</option>
-                <option value="watch">Watch</option>
-                <option value="earphone">Earphone</option>
-                <option value="console">Console</option>
-            </select>
+  <form action="/admin/additem" method="POST" enctype="multipart/form-data">
+    <label>Name</label>
+    <input type="text" placeholder="Product name" name="name" required>
+    <br><br>
 
-    <button  type="submit" onclick=" window.location.href='Adminpanel.html'"> Submit</button>
+    <label>Price</label>
+    <input type="text" placeholder="Sales Price" name="price" required>
+    <br><br>
 
-    </form>
+    <label>Description</label>
+    <input type="text" placeholder="Product description" name="description">
+    <br><br>
+
+    <label for="device">Category:</label>
+    <select id="device" name="category" required>
+      <option value="laptop">Laptop</option>
+      <option value="mobile">Mobile</option>
+      <option value="speaker">Speaker</option>
+      <option value="watch">Watch</option>
+      <option value="earphone">Earphone</option>
+      <option value="console">Console</option>
+    </select>
+    <br><br>
+
+    <label>Upload Image:</label>
+    <input type="file" name="image" accept="image/*" required>
+    <br><br>
+
+    <button type="submit">Submit</button>
+  </form>
 </body>
 </html>
