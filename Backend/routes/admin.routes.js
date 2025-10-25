@@ -1,5 +1,5 @@
 import express from "express"
-import { adminaddsitems} from "../controllers/items.controllers.js"
+import { adminaddsitems,addminsupdateitem} from "../controllers/items.controllers.js"
 import { checkifuserexist } from "../middlewares/auth.js";
 import upload from "../utils/multerconfig.js";
 
@@ -13,4 +13,7 @@ router
     })
     .post(upload.single('image'),adminaddsitems);
 
+router
+    .route("/updateitem")
+    .patch(addminsupdateitem);
 export {router}

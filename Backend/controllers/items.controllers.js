@@ -42,30 +42,62 @@ async function adminaddsitems(req, res) {
     }
 }
 
+async function addminsupdateitem(req,res) {
+    try {
+    const { productId, action } = req.body;
+    const token = req.cookies.usercredentials;
+    const user = getUser(token);
+    // global.console = require("console");
 
 
-async function sellingproducts(req,res){
-   try {
-    
-        let user = await  users.findOne({email:req.user.email});
-        // console.log(user);
-   
-        user.orders.push(req.params.id);
-        // console.log(user);
-    
-        await user.save();
-        await user.populate("orders");
-        return res.status(200).send({
-            message: "Order added successfully",
-            orders: user.orders
-            });
+    const foundUser = await users.findOne({ email: user.email });
 
-   } catch (error) {
-            return res.status(500).send({
-                message: `error in fetching : ${error}`,
-                });       
-   }
+    // Find the specific order for this product
+    const order = foundUser.orders.find(
+      (order) => order.item.toString() === productId
+    );
+
+    if (!order) {
+      return res.status(404).json({ message: "Item not found in cart" });
+    }
+
+    if (action === "increase") {
+      order.quantity += 1;
+    } else if (action === "decrease") {
+      order.quantity = Math.max(1, order.quantity - 1); // don’t go below 1
+    }
+
+    await foundUser.save();
+    res.json({ success: true, orders: foundUser.orders });
+  } catch (error) {
+    // console.log("Error:", error);
+
+    res.status(500).json({ message: "Server error" });
+  }
 }
+
+// async function sellingproducts(req,res){
+//    try {
+    
+//         let user = await  users.findOne({email:req.user.email});
+//         // console.log(user);
+   
+//         user.orders.push(req.params.id);
+//         // console.log(user);
+    
+//         await user.save();
+//         await user.populate("orders");
+//         return res.status(200).send({
+//             message: "Order added successfully",
+//             orders: user.orders
+//             });
+
+//    } catch (error) {
+//             return res.status(500).send({
+//                 message: `error in fetching : ${error}`,
+//                 });       
+//    }
+// }
 //for laptops
 async function laptop(req,res){
 
@@ -176,7 +208,6 @@ async function getitemdata(req,res){
 }
 
 export {adminaddsitems,
-        sellingproducts,
         laptop,
         speakers,
         console,
@@ -184,7 +215,8 @@ export {adminaddsitems,
         watches,
         mobile,
         addtocart,
-        getitemdata
+        getitemdata,
+        addminsupdateitem
 }
 
 

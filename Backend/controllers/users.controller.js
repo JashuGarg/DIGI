@@ -41,7 +41,6 @@ async function usersignup(req,res) {
 
 }
 
-
 async function userlogin(req,res) {
     const body = req.body;
 
@@ -74,42 +73,40 @@ async function userlogin(req,res) {
         })
 }
                                       
-async function getusercart(req, res) {
-    const user = await users.findOne({ email: req.user.email });
+// async function getusercart(req, res) {
+//     const user = await users.findOne({ email: req.user.email });
 
-    if (!user) {
-        return res.status(401).send({
-            mssg: "User Not found",
-            status: "unsuccessful"
-        });
-    }
+//     if (!user) {
+//         return res.status(401).send({
+//             mssg: "User Not found",
+//             status: "unsuccessful"
+//         });
+//     }
 
-   try {
+//    try {
     
-        const arry = user.orders;
-        const cartItems = [];
-        for (let i = 0; i < arry.length; i++) {
-            let item = await items.findOne({ _id: arry[i] });
-            if (item) {
-                console.log(item.itemname);
-                cartItems.push(item.itemname);
-            }
-        }
+//         const arry = user.orders;
+//         const cartItems = [];
+//         for (let i = 0; i < arry.length; i++) {
+//             let item = await items.findOne({ _id: arry[i] });
+//             if (item) {
+//                 console.log(item.itemname);
+//                 cartItems.push(item.itemname);
+//             }
+//         }
 
-        return res.status(200).send({
-            mssg: "Got user's cart",
-            status: "successful",
-            data: cartItems
-        });
-   } catch (error) {
-        return res.status(500).send({
-            mssg: `Error : ${error}`,
-            status: "unsuccessful",
-        });
-   }
-}
-
-
+//         return res.status(200).send({
+//             mssg: "Got user's cart",
+//             status: "successful",
+//             data: cartItems
+//         });
+//    } catch (error) {
+//         return res.status(500).send({
+//             mssg: `Error : ${error}`,
+//             status: "unsuccessful",
+//         });
+//    }
+// }
 
 async function  getcartitems(req,res) {
    
@@ -122,4 +119,4 @@ async function  getcartitems(req,res) {
     res.json(founduser);
 }
 
-export {userlogin, usersignup,getusercart,getcartitems } ;
+export {userlogin, usersignup,getcartitems } ;
