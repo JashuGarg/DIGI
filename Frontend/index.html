@@ -12,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
+    <!-- <script src="/Frontend/Scripts/cart.js"></script> -->
   </head>
 
   <body>
@@ -24,83 +25,38 @@
       <a href="#">Your Cart</a>
     </nav>
 
-    <div class="icons">
-      <i class="ri-heart-line"></i>
-      <i class="ri-user-line"></i>
-      <div class="cart-container">
-        <a href="#" class="cart-btn">
-          <i class="ri-shopping-bag-line"></i>
-          <span class="cart-badge" id="cartBadge">3</span>
-        </a>
+  <div class="icons">
+  <i class="ri-heart-line"></i>
+  <button onclick="logincheck()"><i class="ri-user-line"></i></button>
 
-        <!-- Cart Dropdown -->
-        <div class="cart-dropdown">
-          <div class="cart-header">Shopping Cart</div>
+  <div class="cart-container">
+    <button class="cart-btn" id="cartBtn">
+      <i class="ri-shopping-bag-line"></i>
+      <span class="cart-badge" id="cartBadge">3</span>
+    </button>
 
-          <div class="cart-items" id="cartItems">
-            <!-- Sample cart items -->
-            <div class="cart-item">
-              <div class="cart-item-image">
-                <img src="./public/mobile2.webp" alt="SAMSUNG Galaxy S25 Ultra 5G">
-              </div>
-              <div class="cart-item-details">
-                <div class="cart-item-name">SAMSUNG Galaxy S25 Ultra 5G (12GB RAM, 256GB, Titanium Black)</div>
-                <div class="cart-item-price">₹1,29,999.00</div>
-                <div class="cart-item-quantity">
-                  <button class="qty-btn">-</button>
-                  <span class="qty-value">1</span>
-                  <button class="qty-btn">+</button>
-                </div>
-              </div>
-              <button class="remove-btn"><i class="ri-close-line"></i></button>
-            </div>
+    <!-- Cart Dropdown -->
+    <div class="cart-dropdown" id="cartDropdown">
+      <div class="cart-header">Shopping Cart</div>
 
-            <div class="cart-item">
-              <div class="cart-item-image">
-                <img src="./public/eaarphone1.webp" alt="Apple AirPods 4 Active Noise Cancellation with Charging Case">
-              </div>
-              <div class="cart-item-details">
-                <div class="cart-item-name">Apple AirPods 4 Active Noise Cancellation with Charging Case</div>
-                <div class="cart-item-price">₹17,900.00</div>
-                <div class="cart-item-quantity">
-                  <button class="qty-btn">-</button>
-                  <span class="qty-value">2</span>
-                  <button class="qty-btn">+</button>
-                </div>
-              </div>
-              <button class="remove-btn"><i class="ri-close-line"></i></button>
-            </div>
+      <div class="cart-items" id="cartItems"></div>
 
-            <div class="cart-item">
-              <div class="cart-item-image">
-                <img src="./public/laptop1.webp" alt="Apple MacBook Air">
-              </div>
-              <div class="cart-item-details">
-                <div class="cart-item-name">Apple MacBook Air (15.3 inch, M4, 16GB, 512GB, macOS, Sky Blue)</div>
-                <div class="cart-item-price">₹1,36,490.00</div>
-                <div class="cart-item-quantity">
-                  <button class="qty-btn">-</button>
-                  <span class="qty-value">1</span>
-                  <button class="qty-btn">+</button>
-                </div>
-              </div>
-              <button class="remove-btn"><i class="ri-close-line"></i></button>
-            </div>
-          </div>
-
-          <div class="cart-footer">
-            <div class="cart-total">
-              <span class="cart-total-label">Total:</span>
-              <span class="cart-total-amount" id="cartTotal">$2,377.00</span>
-            </div>
-            <div class="cart-actions">
-              <button class="cart-btn-action cart-btn-secondary">View Cart</button>
-              <button class="cart-btn-action cart-btn-primary">Checkout</button>
-            </div>
-          </div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span class="cart-total-label">Total:</span>
+          <span class="cart-total-amount" id="cartTotal"></span>
+        </div>
+        <div class="cart-actions">
+          <button class="cart-btn-action cart-btn-secondary">View Cart</button>
+          <button class="cart-btn-action cart-btn-primary">Checkout</button>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<script src="Scripts/cart.js"></script>
+
   </header>
     <div class="container">
       <div class="left">
@@ -113,7 +69,7 @@
       </div>
     </div>
 
-    <!-- -----------CATEGORIES---------- -->
+    <!--<J> -----------CATEGORIES---------- -->
     <section class="grid">
       <section class="row1">
         <div class="card earphone">
@@ -712,9 +668,8 @@
         testimonials[index].classList.add("active");
       }, 4000);
 
-
+// login icon working
     const loginbtn = document.getElementsByClassName("icon-btn")[0];
-
     function hasCookie(name) {
        return document.cookie.split('; ').some(cookie => cookie.startsWith(name + '='));
     }
@@ -724,6 +679,9 @@
         window.location.href = "signup.html";
       }
     }
+
+//add to cart working
+//<J> line no 58 added scripts from cart.js to index.html
     </script>
   </body>
 </html>

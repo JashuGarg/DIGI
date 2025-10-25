@@ -244,7 +244,7 @@ addEventListener("load", () => {
   const productsContainer = document.querySelector(".products");
 
   // Fetch and render products
-  fetch("/admin/items/console")
+  fetch("/item/console")
     .then(res => res.json())
     .then(data => {
       productsContainer.innerHTML = ""; 

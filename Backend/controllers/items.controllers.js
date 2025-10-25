@@ -54,6 +54,7 @@ async function sellingproducts(req,res){
         // console.log(user);
     
         await user.save();
+        await user.populate("orders");
         return res.status(200).send({
             message: "Order added successfully",
             orders: user.orders
@@ -133,20 +134,47 @@ async function speakers(req,res) {
 
 
 
-async function addtocart(req,res) {
-    
+async function addtocart(req, res) {
+  try {
     const body = req.body;
-    const user = getUser(req.cookies?.usercredentials);
+    const userData = getUser(req.cookies?.usercredentials);
+    const user = await users.findById(userData._id);
+  
 
-//res.send(`add to cart body : ${body.productId} \n  add to cart user ${user._id}\n headers : ${req.headers}`);
-// console.log("add to cart user:", user);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+ 
+    user.orders.push({
+        item: body.productId,
+        quantity:1 
+    });
+    await user.save();
+    await user.populate("orders");
 
-    const userdetail  = await users.findOne({_id:user._id});
-    userdetail.orders.push(body.productId);
-    await userdetail.save();
     
-    
+    return res.status(200).json({
+      message: "Product added to cart successfully",
+      orders: user.orders, 
+    });
+
+  } catch (error) {
+    console.error("Error adding to cart:", error);
+    return res.status(500).json({
+      message: `Error adding to cart: ${error.message}`,
+    });
+  }
 }
+
+
+async function getitemdata(req,res){
+
+    const body = req.body;
+    const item = await items.findOne({_id:body});
+
+    res.json(item);
+}
+
 export {adminaddsitems,
         sellingproducts,
         laptop,
@@ -155,7 +183,8 @@ export {adminaddsitems,
         earphones,
         watches,
         mobile,
-        addtocart
+        addtocart,
+        getitemdata
 }
 
 

@@ -298,7 +298,7 @@ addEventListener("load", () => {
   const productsContainer = document.querySelector(".products");
   const searchInput = document.querySelector(".search input");
 
-  fetch("/admin/items/earphone")
+  fetch("/item/earphone")
     .then(res => res.json())
     .then(data => {
       productsContainer.innerHTML = "";

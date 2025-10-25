@@ -1,11 +1,9 @@
 import express from "express";
-import { checkifuserexist } from "../middlewares/auth.js";
 import { userlogin, usersignup, getusercart } from "../controllers/users.controller.js";
-import { sellingproducts,addtocart } from "../controllers/items.controllers.js";
 const router = express.Router();
 
 
-
+// free route <J>
 router
     .route("/api")
     .get((req,res)=>{
@@ -33,17 +31,18 @@ router
     })
     .post(userlogin);
 
-router  
-    .route("/items/:id")
-    .get(checkifuserexist,sellingproducts);
+    // checking routes
+// router  
+//     .route("/items/:id")
+//     .get(checkifuserexist,sellingproducts);
    
-router 
-    .route("/cart")
-    .get(checkifuserexist,getusercart);
+// router  <J>
+//     .route("/cart")
+//     .get(checkifuserexist,getusercart);
 
-router
-    .route("/addtocart")
-    .get((req,res)=>{res.send("Hi")})
-    .post(addtocart)
+// router
+//     .route("/addtocart")
+//     .get((req,res)=>{res.send("Hi")})
+//     .post(addtocart)
 
 export {router}

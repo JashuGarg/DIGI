@@ -2,7 +2,7 @@ import { users } from "../models/users.models.js";
 import { items } from "../models/items.models.js";
 import bcrypt from "bcrypt" ; 
 import { setUser,getUser } from "../utils/auth.js";
-
+import { getCookie } from "../utils/getcookie.js";
 async function usersignup(req,res) {
     const body = req.body;
 
@@ -110,4 +110,16 @@ async function getusercart(req, res) {
 }
 
 
-export {userlogin, usersignup,getusercart} ;
+
+async function  getcartitems(req,res) {
+   
+    const token = req.cookies.usercredentials
+    const user = getUser(token);
+    const founduser = await users.findOne({email: user.email}).populate("orders.item").lean();
+
+    console.log(founduser);
+    
+    res.json(founduser);
+}
+
+export {userlogin, usersignup,getusercart,getcartitems } ;

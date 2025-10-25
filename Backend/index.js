@@ -1,7 +1,8 @@
 // import cookieparser from "cookieparser";
 import express from "express" ;
 import { router as userrouter }  from "./routes/user.route.js";
-import { router as itemrouter } from "./routes/items.routes.js";
+import { router as adminrouter } from "./routes/admin.routes.js";
+import { router as itemrouter } from "./routes/item.routes.js";
 import { Connectdb } from "./connect.js";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
@@ -39,7 +40,8 @@ app.use(express.static(path.join(__dirname, "../Frontend")));
 //routes
 
 app.use("/users",userrouter);
-app.use("/admin",itemrouter);
+app.use("/admin",adminrouter);
+app.use("/item",itemrouter);
 
 
 //server 
