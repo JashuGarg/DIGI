@@ -45,35 +45,46 @@ async function adminaddsitems(req, res) {
 async function addminsupdateitem(req,res) {
     try {
     const { productId, action } = req.body;
-    const token = req.cookies.usercredentials;
-    const user = getUser(token);
-    // global.console = require("console");
+    const token = req.cookies?.usercredentials;
 
-
-    const foundUser = await users.findOne({ email: user.email });
-
-    // Find the specific order for this product
-    const order = foundUser.orders.find(
-      (order) => order.item.toString() === productId
-    );
-
-    if (!order) {
-      return res.status(404).json({ message: "Item not found in cart" });
+    if (!token) {
+      return res.status(401).json({ message: "Unauthorized" });
     }
 
+    const user = getUser(token);
+    if (!user) return res.status(401).json({ message: "Invalid user" });
+
+    const foundUser = await users.findOne({ email: user.email });
+    if (!foundUser) return res.status(404).json({ message: "User not found" });
+
+    // Find the order for this product
+    const order = foundUser.orders.find(
+      (o) => o.item.toString() === productId
+    );
+
+    if (!order) return res.status(404).json({ message: "Item not in cart" });
+
+    // Update quantity
     if (action === "increase") {
       order.quantity += 1;
     } else if (action === "decrease") {
-      order.quantity = Math.max(1, order.quantity - 1); // don’t go below 1
+      order.quantity = Math.max(1, order.quantity - 1); // minimum 1
     }
 
     await foundUser.save();
-    res.json({ success: true, orders: foundUser.orders });
-  } catch (error) {
-    // console.log("Error:", error);
 
+    // Return updated orders with populated items
+    const updatedUser = await users
+      .findById(foundUser._id)
+      .populate("orders.item")
+      .lean();
+
+    res.json({ success: true, orders: updatedUser.orders });
+  } catch (err) {
+    // console.error(err);
     res.status(500).json({ message: "Server error" });
   }
+
 }
 
 // async function sellingproducts(req,res){

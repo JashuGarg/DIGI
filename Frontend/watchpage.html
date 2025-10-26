@@ -14,34 +14,49 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
 
 </head>
-<body>
-      <header style="width: 96%;">
-      <div class="logo"><a href="index.html" style="text-decoration: none;color: #222;">DIGI</a></div>
+<body data-route="watch">
+      <header>
+    <div class="logo"><a href="index.html" style="text-decoration: none;color: #222;">DIGI</a></div>
 
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="laptoppage.html">Shop</a>
-        <a href="#">Your Cart</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="laptoppage.html">Shop</a>
+      <a href="#">Your Cart</a>
+    </nav>
 
-      </nav>
+  <div class="icons">
+  <i class="ri-heart-line"></i>
+  <button onclick="logincheck()"><i class="ri-user-line"></i></button>
 
-      <div class="search">
-        <i class="ri-search-line"></i>
-        <input type="text" placeholder="Type for search" />
-      </div>
+  <div class="cart-container">
+    <button class="cart-btn" id="cartBtn">
+      <i class="ri-shopping-bag-line"></i>
+      <!-- <span class="cart-badge" id="cartBadge"></span>   -->
+    </button>
 
-      <div class="icons">
-        <i class="ri-heart-line"></i>
-        <i class="ri-user-line"></i>
-        <div style="position: relative">
-          <a href="#" class="cart-btn">
-            <i class="ri-shopping-bag-line"></i>
-            <span class="cart-badge">0</span>
-          </a>
+    <!-- Cart Dropdown -->
+    <div class="cart-dropdown" id="cartDropdown">
+      <div class="cart-header">Shopping Cart</div>
+
+      <div class="cart-items" id="cartItems"></div>
+
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span class="cart-total-label">Total:</span>
+          <span class="cart-total-amount" id="cartTotal"></span>
+        </div>
+        <div class="cart-actions">
+          <button class="cart-btn-action cart-btn-secondary">View Cart</button>
+          <button class="cart-btn-action cart-btn-primary">Checkout</button>
         </div>
       </div>
+    </div>
+  </div>
+</div>
 
-    </header>
+<script src="Scripts/cart.js"></script>
+
+  </header>
     <div class="banner">
         <video autoplay muted loop class="myVideo">
             <source src="public/watchmv.mp4" type="video/mp4">
@@ -98,77 +113,6 @@
 
       <!-- Products -->
       <div class="products">
-        <!-- Product 1 -->
-        <div class="product-card">
-          <img src="./public/watch1.webp" alt="Noise ColorFit Victor 2025">
-          <div class="product-name">Noise ColorFit Victor 2025 Smartwatch</div>
-          <div class="product-price">₹1,199.00</div>
-          <button class="cart-btn1">Add to Cart</button>
-        </div>
-
-        <!-- Product 2 -->
-        <div class="product-card">
-          <img src="./public/watch2.webp" alt="NoiseFit Twist Go ">
-          <div class="product-name">NoiseFit Twist Go Smartwatch</div>
-          <div class="product-price">₹1,399.00</div>
-          <button class="cart-btn1">Add to Cart</button>
-        </div>
-
-        <!-- Product 3 -->
-        <div class="product-card sale">
-          <span class="sale-tag">SALE</span>
-          <img src="./public/watch3.webp" alt="Nothing Watch Pro 2 Smartwatch">
-          <div class="product-name">Nothing Watch Pro 2 Smartwatch</div>
-          <div class="product-price">
-            <span class="old-price">₹5,999.00</span>
-            <span>₹4,999.00</span>
-          </div>
-          <button class="cart-btn1">Add to Cart</button>
-        </div>
-        <!-- Product 4 -->
-        <div class="product-card">
-          <img src="./public/watch4.webp" alt="SAMSUNG Galaxy Watch7 ">
-          <div class="product-name">SAMSUNG Galaxy Watch7 </div>
-          <div class="product-price">₹32,999.00</div>
-          <button class="cart-btn1">Add to Cart</button>
-        </div>
-        <!-- Product 5 -->
-        <div class="product-card">
-          <img src="./public/watch5.webp" alt="Google Pixel Watch 3">
-          <div class="product-name">Google Pixel Watch 3</div><br>
-          <div class="product-price">₹39,900.00</div>
-          <button class="cart-btn1">Add to Cart</button>
-        </div>
-        <!-- Product 6 -->
-        <div class="product-card">
-          <img src="./public/watch6.webp" alt="boAt Wave Sigma 3 Smartwatch">
-          <div class="product-name">boAt Wave Sigma 3 Smartwatch</div>
-          <div class="product-price">₹1,449.00</div>
-          <button class="cart-btn1">Add to Cart</button>
-        </div>
-        <!-- Product 7 -->
-        <div class="product-card sale">
-          <img src="./public/watch7.webp" alt="noise NoiseFit Diva Smartwatch ">
-          <div class="product-name">NoiseFit Diva Smartwatch </div>
-          <div class="product-price">
-            <span>₹3,499.00</span>
-          </div>
-          <button class="cart-btn1">Add to Cart</button>
-      </div>
-      <!-- Product 8 -->
-      <div class="product-card">
-        <img src="./public/watch8.webp" alt="Noise NoiseFit Halo Plus Smartwatch">
-        <div class="product-name">NoiseFit Halo Plus Smartwatch</div>
-        <div class="product-price">₹3,499.00</div>
-        <button class="cart-btn1">Add to Cart</button>
-      </div>
-      <!-- Product 9 -->
-      <div class="product-card">
-        <img src="./public/watch9.webp" alt="Apple Watch SE">
-        <div class="product-name">Apple Watch SE</div><br>
-        <div class="product-price">₹23,690.00</div>
-        <button class="cart-btn1">Add to Cart</button>
-      </div>
     </div>
   </div>
 </div>
@@ -225,57 +169,7 @@
         </p>
       </div>
     </footer>
+    <script src="Scripts/products.js"></script>
 </body>
-<script>
-addEventListener("load", () => {
-  const productsContainer = document.querySelector(".products");
-
-  // Fetch and render products
-  fetch("/item/watch")
-    .then(res => res.json())
-    .then(data => {
-      productsContainer.innerHTML = ""; 
-
-      data.forEach(item => {
-        const card = document.createElement("div");
-        card.classList.add("product-card")
-        card.setAttribute("data-id", item._id);
-        
-        // card.setAttribute("data-id", item._id);
-        card.innerHTML = `
-          <img src="${item.imageUrl || './public/default.webp'}" alt="${item.name}">
-          <div class="product-name">${item.itemname}</div>
-          <div class="product-name">${item.description}</div>
-          <div class="product-price">₹${item.price}</div>
-          <button class="cart-btn">Add to Cart</button>
-        `;
-        productsContainer.appendChild(card);
-      });
-    })
-    .catch(err => console.error("Error fetching items:", err));
-
-  productsContainer.addEventListener("click", async (e) => {
-  const button = e.target.closest(".cart-btn");
-  if (!button) return;
-    const productCard = button.closest(".product-card");
-    const productId = productCard.getAttribute("data-id");
-  console.log("Clicked productId:", productId);
-
-  try {
-    const res = await fetch("/users/addtocart", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ productId })
-    });
-
-    const data = await res.json();
-    console.log("Data fetch from users addtoCart:", data);
-  } catch (err) {
-    console.log(err);
-  }
-});
-
-});
-</script>
 
 </html>

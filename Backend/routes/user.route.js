@@ -1,5 +1,6 @@
 import express from "express";
 import { userlogin, usersignup } from "../controllers/users.controller.js";
+import { addtocart } from "../controllers/items.controllers.js";
 const router = express.Router();
 
 
@@ -40,9 +41,9 @@ router
 //     .route("/cart")
 //     .get(checkifuserexist,getusercart);
 
-// router
-//     .route("/addtocart")
-//     .get((req,res)=>{res.send("Hi")})
-//     .post(addtocart)
+router
+    .route("/addtocart")
+    .get((req,res)=>{res.send("Hi")})
+    .post(addtocart)
 
 export {router}

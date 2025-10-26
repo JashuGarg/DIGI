@@ -12,33 +12,49 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
 </head>
-<body>
-      <header style="width: 96%;">
-      <div class="logo"><a href="index.html" style="text-decoration: none;color: #222;">DIGI</a></div>
+<body data-route="speaker">
+      <header>
+    <div class="logo"><a href="index.html" style="text-decoration: none;color: #222;">DIGI</a></div>
 
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="laptoppage.html">Shop</a>
-        <a href="#">Your Cart</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="laptoppage.html">Shop</a>
+      <a href="#">Your Cart</a>
+    </nav>
 
-      </nav>
+  <div class="icons">
+  <i class="ri-heart-line"></i>
+  <button onclick="logincheck()"><i class="ri-user-line"></i></button>
 
-      <div class="search">
-        <i class="ri-search-line"></i>
-        <input type="text" placeholder="Type for search" />
-      </div>
+  <div class="cart-container">
+    <button class="cart-btn" id="cartBtn">
+      <i class="ri-shopping-bag-line"></i>
+      <!-- <span class="cart-badge" id="cartBadge"></span>   -->
+    </button>
 
-      <div class="icons">
-        <i class="ri-heart-line"></i>
-        <i class="ri-user-line"></i>
-        <div style="position: relative">
-          <a href="#" class="cart-btn">
-            <i class="ri-shopping-bag-line"></i>
-            <span class="cart-badge">0</span>
-          </a>
+    <!-- Cart Dropdown -->
+    <div class="cart-dropdown" id="cartDropdown">
+      <div class="cart-header">Shopping Cart</div>
+
+      <div class="cart-items" id="cartItems"></div>
+
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span class="cart-total-label">Total:</span>
+          <span class="cart-total-amount" id="cartTotal"></span>
+        </div>
+        <div class="cart-actions">
+          <button class="cart-btn-action cart-btn-secondary">View Cart</button>
+          <button class="cart-btn-action cart-btn-primary">Checkout</button>
         </div>
       </div>
-    </header>
+    </div>
+  </div>
+</div>
+
+<script src="Scripts/cart.js"></script>
+
+  </header>
 
     <div class="banner">
         <video autoplay muted loop class="myVideo">
@@ -98,84 +114,6 @@
 
       <!-- Products -->
       <div class="products">
-        <!-- Product 1 -->
-        <div class="product-card">
-          <img src="./public/speaker1.webp" alt="amazon Echo Pop with Built-in Alexa Smart Wi-Fi Speaker">
-          <div class="product-name">Amazon Echo Pop with Built-in Alexa Smart Wi-Fi Speaker(Balanced Bass, Black)</div>
-          <div class="product-price">₹3,990.00</div>
-          <button class="cart-btn1">Add to Cart</button>
-        </div>
-
-        <!-- Product 2 -->
-        <div class="product-card">
-          <img src="./public/speaker2.webp" alt="amazon Echo Dot (5th Gen) with Built-in Alexa Smart Wi-Fi Speaker">
-          <div class="product-name">Amazon Echo Dot (5th Gen) with Built-in Alexa Smart Wi-Fi Speaker</div>
-          <div class="product-price">
-            <span class="old-price">₹7,499.00</span><br>
-            <span>₹5,499.00</span></div>
-          <button class="cart-btn1">Add to Cart</button>
-        </div>
-
-        <!-- Product 3 -->
-        <div class="product-card sale">
-          <span class="sale-tag">SALE</span>
-          <img src="./public/speaker3.webp" alt="amazon Echo Show 8 (2nd Gen) with Built-in Alexa Smart Wi-Fi Speaker  ">
-          <div class="product-name">Amazon Echo Show 8 (2nd Gen) with Built-in Alexa Smart Wi-Fi Speaker  </div>
-          <div class="product-price">
-            <span>₹13,999.00</span>
-          </div>
-          <button class="cart-btn1">Add to Cart</button>
-        </div>
-        <!-- Product 4 -->
-        <div class="product-card">
-          <img src="./public/speaker4.webp" alt="Marshall Kilburn II 36W Portable Bluetooth Speaker ">
-          <div class="product-name">Marshall Kilburn II 36W Portable Bluetooth Speaker </div>
-          <div class="product-price">₹24,999.00</div>
-          <button class="cart-btn1">Add to Cart</button>
-        </div>
-        <!-- Product 5 -->
-        <div class="product-card">
-          <img src="./public/speaker5.webp" alt="JBL Go 4 4.2W Portable Bluetooth Speaker ">
-          <div class="product-name">JBL Go 4 4.2W Portable Bluetooth Speaker </div>
-          <div class="product-price">
-            <span class="old-price">₹5,499.00</span><br>
-            <span>₹3,999.00</span>
-          </div>
-          <button class="cart-btn1">Add to Cart</button>
-        </div>
-        <!-- Product 6 -->
-        <div class="product-card">
-          <img src="./public/speaker6.webp" alt="Google Home Mini with Google Assistant Compatible Smart Wi-Fi Speaker">
-          <div class="product-name">Google Home Mini with Google Assistant Smart Wi-Fi Speaker</div>
-          <div class="product-price">₹4,999.00</div>
-          <button class="cart-btn1">Add to Cart</button>
-        </div>
-        <!-- Product 7 -->
-        <div class="product-card sale">
-          <img src="./public/speaker7.webp" alt="boAt Stone Ignite 90W Portable Bluetooth Speaker ">
-          <div class="product-name">boAt Stone Ignite 90W Portable Bluetooth Speaker </div>
-          <div class="product-price">
-            <span>₹6,499.00</span>
-          </div>
-          <button class="cart-btn1">Add to Cart</button>
-      </div>
-      <!-- Product 8 -->
-      <div class="product-card">
-        <img src="./public/speaker8.webp" alt="Apple HomePod (2nd Gen) with Built-in Siri Smart Wi-Fi Speaker">
-        <div class="product-name">Apple HomePod (2nd Gen) with Built-in Siri Smart Wi-Fi Speaker</div>
-        <div class="product-price">₹30,990.00</div>
-        <button class="cart-btn1">Add to Cart</button>
-      </div>
-      <!-- Product 9 -->
-      <div class="product-card">
-        <img src="./public/speaker9.webp" alt="SAREGAMA Carvaan 6W Portable Bluetooth Speaker">
-        <div class="product-name">SAREGAMA Carvaan 6W Portable Bluetooth Speaker</div>
-        <div class="product-price">
-            <span class="old-price">₹8,990.00</span>
-            <span>₹7,690.00</span>
-          </div>
-        <button class="cart-btn1">Add to Cart</button>
-      </div>
     </div>
   </div>
 </div>
@@ -232,58 +170,7 @@
         </p>
       </div>
     </footer>
-
+<script src="Scripts/products.js"></script>
 </body>
-<script>
-addEventListener("load", () => {
-  const productsContainer = document.querySelector(".products");
-
-  // Fetch and render products
-  fetch("/item/speaker")
-    .then(res => res.json())
-    .then(data => {
-      productsContainer.innerHTML = ""; 
-
-      data.forEach(item => {
-        const card = document.createElement("div");
-        card.classList.add("product-card")
-        card.setAttribute("data-id", item._id);
-        
-        // card.setAttribute("data-id", item._id);
-        card.innerHTML = `
-          <img src="${item.imageUrl || './public/default.webp'}" alt="${item.name}">
-          <div class="product-name">${item.itemname}</div>
-          <div class="product-name">${item.description}</div>
-          <div class="product-price">₹${item.price}</div>
-          <button class="cart-btn">Add to Cart</button>
-        `;
-        productsContainer.appendChild(card);
-      });
-    })
-    .catch(err => console.error("Error fetching items:", err));
-
-  productsContainer.addEventListener("click", async (e) => {
-  const button = e.target.closest(".cart-btn");
-  if (!button) return;
-    const productCard = button.closest(".product-card");
-    const productId = productCard.getAttribute("data-id");
-  console.log("Clicked productId:", productId);
-
-  try {
-    const res = await fetch("/users/addtocart", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ productId })
-    });
-
-    const data = await res.json();
-    console.log("Data fetch from users addtoCart:", data);
-  } catch (err) {
-    console.log(err);
-  }
-});
-
-});
-</script>
 
 </html>

@@ -4,17 +4,13 @@ const cartItemsContainer = document.getElementById("cartItems");
 const cartTotalElement = document.getElementById("cartTotal");
 const cartDropdown = document.getElementById("cartDropdown");
 
-// Add event listener to cart icon
-cartBtn.addEventListener("click", async () => {
-  // Toggle dropdown visibility
-  cartDropdown.classList.toggle("active");
-
+// Function to fetch and render cart items
+async function fetchCartItems() {
   try {
-    const res = await fetch("/admin/cartitems");
+    const res = await fetch("/item/cartitems");
     const data = await res.json();
-    const orders = data.orders; 
-    console.log(orders);
-    
+    const orders = data.orders;
+
     cartItemsContainer.innerHTML = "";
     let total = 0;
 
@@ -49,5 +45,38 @@ cartBtn.addEventListener("click", async () => {
     cartTotalElement.textContent = `₹${total.toLocaleString("en-IN")}`;
   } catch (err) {
     console.error("Error fetching cart items:", err);
+  }
+}
+
+// Toggle cart dropdown and fetch items on cart button click
+cartBtn.addEventListener("click", async () => {
+  cartDropdown.classList.toggle("active");
+  await fetchCartItems();
+});
+
+// Event delegation for quantity buttons
+cartItemsContainer.addEventListener("click", async (e) => {
+  const btn = e.target.closest(".qty-btn");
+  if (!btn) return;
+
+  const productId = btn.dataset.id;
+  const action = btn.dataset.action;
+
+  try {
+    const res = await fetch("/admin/updateitem", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ productId, action }),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      await fetchCartItems(); // Refresh cart after update
+    } else {
+      console.error("Failed to update cart:", data.message);
+    }
+  } catch (err) {
+    console.error("Error updating cart:", err);
   }
 });

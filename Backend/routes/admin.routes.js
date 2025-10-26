@@ -15,5 +15,5 @@ router
 
 router
     .route("/updateitem")
-    .patch(addminsupdateitem);
+    .post(addminsupdateitem);
 export {router}

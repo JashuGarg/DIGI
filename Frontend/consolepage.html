@@ -12,34 +12,49 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
 </head>
-<body>
-      <header style="width: 96%;">
-      <div class="logo"><a href="index.html" style="text-decoration: none;color: #222;">DIGI</a></div>
+<body data-route="console">
+      <header>
+    <div class="logo"><a href="index.html" style="text-decoration: none;color: #222;">DIGI</a></div>
 
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="laptoppage.html">Shop</a>
-        <a href="#">Your Cart</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="laptoppage.html">Shop</a>
+      <a href="#">Your Cart</a>
+    </nav>
 
-      </nav>
+  <div class="icons">
+  <i class="ri-heart-line"></i>
+  <button onclick="logincheck()"><i class="ri-user-line"></i></button>
 
-      <div class="search">
-        <i class="ri-search-line"></i>
-        <input type="text" placeholder="Type for search" />
-      </div>
+  <div class="cart-container">
+    <button class="cart-btn" id="cartBtn">
+      <i class="ri-shopping-bag-line"></i>
+      <!-- <span class="cart-badge" id="cartBadge"></span>   -->
+    </button>
 
-      <div class="icons">
-        <i class="ri-heart-line"></i>
-        <i class="ri-user-line"></i>
-        <div style="position: relative">
-          <a href="#" class="cart-btn">
-            <i class="ri-shopping-bag-line"></i>
-            <span class="cart-badge">0</span>
-          </a>
+    <!-- Cart Dropdown -->
+    <div class="cart-dropdown" id="cartDropdown">
+      <div class="cart-header">Shopping Cart</div>
+
+      <div class="cart-items" id="cartItems"></div>
+
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span class="cart-total-label">Total:</span>
+          <span class="cart-total-amount" id="cartTotal"></span>
+        </div>
+        <div class="cart-actions">
+          <button class="cart-btn-action cart-btn-secondary">View Cart</button>
+          <button class="cart-btn-action cart-btn-primary">Checkout</button>
         </div>
       </div>
-    </header>
+    </div>
+  </div>
+</div>
 
+<script src="Scripts/cart.js"></script>
+
+  </header>
     <div class="banner">
         <video autoplay muted loop class="myVideo">
             <source src="" type="video/mp4">
@@ -99,89 +114,6 @@
 
     </div>
       <!-- Products -->
-      <!-- <div class="products">
-
-      
-        <div class="product-card">
-          <img src="./public/console1.webp" alt="SONY PlayStation 5 1TB SSD Digital Slim Gaming Console">
-          <div class="product-name">SONY PlayStation 5 1TB SSD Digital Slim Gaming Console</div>
-          <div class="product-price">₹49,990.00</div>
-          <button class="cart-btn1">Add to Cart</button>
-        </div>
-
-   
-        <div class="product-card sale">
-          <span class="sale-tag">SALE</span>
-          <img src="./public/console2.webp" alt="AMKETTE EvoFox 32GB SSD Gaming Console">
-          <div class="product-name">AMKETTE EvoFox 32GB SSD Gaming Console</div>
-          <div class="product-price">
-            <span class="old-price">₹10,990.00</span><br>
-            <span>₹9,999.00</span></div>
-          <button class="cart-btn1">Add to Cart</button>
-        </div>
-
-    
-        <div class="product-card">
-          <img src="./public/console3.webp" alt="SONY DualSense Wireless Controller for Playstation 5 ">
-          <div class="product-name">SONY DualSense Wireless Controller for Playstation 5 </div>
-          <div class="product-price">
-            <span>₹6,390.00</span>
-          </div>
-          <button class="cart-btn1">Add to Cart</button>
-        </div>
-  
-        <div class="product-card">
-          <img src="./public/console4.webp" alt="logitech G29 Driving Force Wired Controller">
-          <div class="product-name">Logitech G29 Driving Force Wired Controller For PS5</div>
-          <div class="product-price">₹32,995</div>
-          <button class="cart-btn1">Add to Cart</button>
-        </div>
-   
-        <div class="product-card sale">
-          <span class="sale-tag">SALE</span>
-          <img src="./public/console5.webp" alt="Logitech Driving Force Shifter Motion Controller">
-          <div class="product-name">Logitech Driving Force Shifter Motion Controller</div>
-          <div class="product-price">
-            <span class="old-price">₹7,395.00</span><br>
-            <span>₹6,723.00</span>
-          </div>
-          <button class="cart-btn1">Add to Cart</button>
-        </div>
-  
-        <div class="product-card">
-          <img src="./public/console6.webp" alt="SONY Portal Wireless Gaming Controller for PlayStation 5">
-          <div class="product-name">SONY Portal Wireless Gaming Controller for PlayStation 5</div>
-          <div class="product-price">₹18,990.00</div>
-          <button class="cart-btn1">Add to Cart</button>
-        </div>
-     
-        <div class="product-card sale">
-          <img src="./public/console7.png" alt="Nintendo Switch™ 2 + Mario Kart™ World Bundle">
-          <div class="product-name">Nintendo Switch™ 2 + Mario Kart™ World Bundle</div>
-          <div class="product-price">
-            <span>₹69,999.00</span>
-          </div>
-          <button class="cart-btn1">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="./public/console8.png" alt="Microsoft Xbox Series X/S Wireless Controller Carbon Black">
-        <div class="product-name">Microsoft Xbox Series X/S Wireless Controller Carbon Black</div>
-        <div class="product-price">₹5,490.00</div>
-        <button class="cart-btn1">Add to Cart</button>
-      </div>
-
-      <div class="product-card sale">
-          <span class="sale-tag">SALE</span>
-        <img src="./public/console9.png" alt="Xbox Series X – 1 TB Carbon Black">
-        <div class="product-name">Xbox Series X – 1 TB Carbon Black</div>
-        <div class="product-price">
-            <span class="old-price">₹65,999.00</span><br>
-            <span>₹54,990.00</span>
-          </div>
-        <button class="cart-btn1">Add to Cart</button>
-      </div>
-    </div> -->
   </div>
 </div>
 <!-- footer -->
@@ -237,58 +169,8 @@
         </p>
       </div>
     </footer>
-
+    <script src="Scripts/products.js"></script>
 </body>
-<script>
-addEventListener("load", () => {
-  const productsContainer = document.querySelector(".products");
 
-  // Fetch and render products
-  fetch("/item/console")
-    .then(res => res.json())
-    .then(data => {
-      productsContainer.innerHTML = ""; 
-
-      data.forEach(item => {
-        const card = document.createElement("div");
-        card.classList.add("product-card")
-        card.setAttribute("data-id", item._id);
-        
-        // card.setAttribute("data-id", item._id);
-        card.innerHTML = `
-          <img src="${item.imageUrl || './public/default.webp'}" alt="${item.name}">
-          <div class="product-name">${item.itemname}</div>
-          <div class="product-name">${item.description}</div>
-          <div class="product-price">₹${item.price}</div>
-          <button class="cart-btn">Add to Cart</button>
-        `;
-        productsContainer.appendChild(card);
-      });
-    })
-    .catch(err => console.error("Error fetching items:", err));
-
-  productsContainer.addEventListener("click", async (e) => {
-  const button = e.target.closest(".cart-btn");
-  if (!button) return;
-    const productCard = button.closest(".product-card");
-    const productId = productCard.getAttribute("data-id");
-  console.log("Clicked productId:", productId);
-
-  try {
-    const res = await fetch("/users/addtocart", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ productId })
-    });
-
-    const data = await res.json();
-    console.log("Data fetch from users addtoCart:", data);
-  } catch (err) {
-    console.log(err);
-  }
-});
-
-});
-</script>
 
 </html>

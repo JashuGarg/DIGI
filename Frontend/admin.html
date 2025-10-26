@@ -1,40 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Add Item</title>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="CSS/admin.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    .circle-1 {
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle at top left, #4158d0, #c850c0);
+      top: -100px;
+      right: -100px;
+    }
+
+    .circle-2 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle at bottom right, #4158d0, #c850c0);
+      bottom: -120px;
+      left: -100px;
+    }
+
+    .connector {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex: 1;
+      margin-top: 1rem;
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+    }
+
+    .connector-line {
+      width: 100%;
+      border-top: 1px dashed #aaa;
+    }
+
+    .container {
+      width: 400px;
+      background: rgba(20, 20, 30, 0.6);
+      backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 20px 40px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      left: 15rem;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .header p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #6d5dfc;
+    }
+
+    select option {
+      background: #222;
+      color: #fff;
+    }
+
+    textarea {
+      resize: none;
+      min-height: 80px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(90deg, #6d5dfc, #c850c0);
+      border: none;
+      color: white;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(109, 93, 252, 0.4);
+    }
+  </style>
 </head>
+
 <body>
-  <form action="/admin/additem" method="POST" enctype="multipart/form-data">
-    <label>Name</label>
-    <input type="text" placeholder="Product name" name="name" required>
-    <br><br>
+  <div class="circle circle-1"></div>
+  <div class="circle circle-2"></div>
 
-    <label>Price</label>
-    <input type="text" placeholder="Sales Price" name="price" required>
-    <br><br>
+  <div class="container">
+    <div class="header">
+      <h1>Add Product</h1>
+      <p>Fill in the details to add a new product</p>
+    </div>
+    <form id="productForm" action="/admin/additem" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="productName">Product Name</label>
+        <input type="text" id="productName" name="name" placeholder="e.g., iPhone 17 Pro" required />
+      </div>
 
-    <label>Description</label>
-    <input type="text" placeholder="Product description" name="description">
-    <br><br>
+      <div class="form-group">
+        <label for="price">Price (₹)</label>
+        <input type="number" id="price" name="price" placeholder="0.00" step="2000" required />
+      </div>
 
-    <label for="device">Category:</label>
-    <select id="device" name="category" required>
-      <option value="laptop">Laptop</option>
-      <option value="mobile">Mobile</option>
-      <option value="speaker">Speaker</option>
-      <option value="watch">Watch</option>
-      <option value="earphone">Earphone</option>
-      <option value="console">Console</option>
-    </select>
-    <br><br>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select id="category" name="category" required>
+          <option value="" disabled selected>Select a category</option>
+          <option value="mobile">Mobile</option>
+          <option value="laptop">Laptop</option>
+          <option value="earphone">Earphone</option>
+          <option value="watch">Watch</option>
+          <option value="speaker">Speaker</option>
+          <option value="console">Console</option>
+        </select>
+      </div>
 
-    <label>Upload Image:</label>
-    <input type="file" name="image" accept="image/*" required>
-    <br><br>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Enter product details..." required></textarea>
+      </div>
 
-    <button type="submit">Submit</button>
-  </form>
+      <div class="form-group">
+        <label for="productImage">Product Image</label>
+        <input type="file" id="productImage" name="image" accept="image/*" required />
+      </div>
+
+      <button type="submit" class="submit-btn">Add Product</button>
+    </form>
+  </div>
+
+  <div class="z-10 flex-grow-1 d-flex flex-column align-items-start">
+    <h1 class="fw-bold" style="font-size: 3.5rem;">Admin Panel...!</h1>
+    <div class="connector">
+      <div class="connector-line"></div>
+    </div>
+  </div>
 </body>
+
 </html>
