@@ -307,3 +307,36 @@ nav a:hover {
 .cart-btn-secondary:hover {
   background-color: #e0e0e0;
 }
+
+.cart-btn {
+  background: none;         /* Removes background color */
+  border: none;             /* Removes border */
+  outline: none;            /* Removes focus outline */
+  cursor: pointer;          /* Makes it clickable */
+  padding: 0;               /* Removes default padding */
+  margin: 0;                /* Removes default margin */
+}
+
+.cart-btn i {
+  font-size: 1.5rem;        /* Adjust icon size */
+  color: #000;              /* Set icon color */
+}
+
+button {
+  background: none;      /* Remove default background */
+  border: none;          /* Remove border */
+  outline: none;         /* Remove blue focus border */
+  cursor: pointer;       /* Make it clickable */
+  padding: 0;            /* Remove default padding */
+  margin: 0;             /* Remove margin */
+}
+
+button i {
+  font-size: 1.5rem;     /* Adjust icon size */
+  color: #000;           /* Set icon color */
+}
+
+button:hover i {
+  color: #f5c518;        /* Yellow hover effect (your theme color) */
+  transition: color 0.2s ease;
+}

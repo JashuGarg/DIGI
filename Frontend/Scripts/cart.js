@@ -34,7 +34,7 @@ async function fetchCartItems() {
           </div>
         </div>
         <button class="remove-btn" data-id="${item._id}">
-          <i class="ri-close-line"></i>
+        <i class="ri-close-line"></i>
         </button>
       `;
 
@@ -48,13 +48,11 @@ async function fetchCartItems() {
   }
 }
 
-// Toggle cart dropdown and fetch items on cart button click
 cartBtn.addEventListener("click", async () => {
   cartDropdown.classList.toggle("active");
   await fetchCartItems();
 });
 
-// Event delegation for quantity buttons
 cartItemsContainer.addEventListener("click", async (e) => {
   const btn = e.target.closest(".qty-btn");
   if (!btn) return;
@@ -72,7 +70,7 @@ cartItemsContainer.addEventListener("click", async (e) => {
     const data = await res.json();
 
     if (data.success) {
-      await fetchCartItems(); // Refresh cart after update
+      await fetchCartItems(); 
     } else {
       console.error("Failed to update cart:", data.message);
     }
@@ -80,3 +78,32 @@ cartItemsContainer.addEventListener("click", async (e) => {
     console.error("Error updating cart:", err);
   }
 });
+cartItemsContainer.addEventListener("click", async (e) => {
+  const removeBtn = e.target.closest(".remove-btn");
+  if (!removeBtn) return;
+
+  const productId = removeBtn.dataset.id;
+
+  try {
+    const res = await fetch("/admin/deleteitem", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ productId })
+    });
+
+    const data = await res.json();
+    if (data.success) {
+      console.log("Item removed:", productId);
+      await fetchCartItems();
+    } else {
+      console.error("Failed to remove item:", data.message);
+    }
+  } catch (err) {
+    console.error("Error removing item:", err);
+  }
+});
+
+
+  function goToCheckout() {
+    window.location.href = "Thanks.html";  // or "thankyou.html"
+  }

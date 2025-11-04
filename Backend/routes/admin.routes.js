@@ -1,5 +1,5 @@
-import express from "express"
-import { adminaddsitems,addminsupdateitem} from "../controllers/items.controllers.js"
+import express, { Router } from "express"
+import { adminaddsitems,addminsupdateitem,userdeleteitem} from "../controllers/items.controllers.js"
 import { checkifuserexist } from "../middlewares/auth.js";
 import upload from "../utils/multerconfig.js";
 
@@ -16,4 +16,8 @@ router
 router
     .route("/updateitem")
     .post(addminsupdateitem);
+
+router
+    .route("/deleteitem")
+    .post(userdeleteitem)
 export {router}

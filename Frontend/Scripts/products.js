@@ -30,8 +30,9 @@ addEventListener("load", () => {
         <img src="${item.imageUrl || './public/default.webp'}" alt="${item.name}">
         <div class="product-name">${item.itemname}</div>
         <div class="product-name">${item.description}</div>
-        <div class="product-price">₹${item.price}</div>
-        <button class="cart-btn">Add to Cart</button>
+        <div class="product-price">₹${item.price}</div>        
+        <button class="cart-btn" style="border: solid 2px white; color: aliceblue;padding: 4px;background-color: purple;"  >Add to Cart</button>   
+
       `;
       productsContainer.appendChild(card);
     });

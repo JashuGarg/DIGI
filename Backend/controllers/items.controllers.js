@@ -87,6 +87,27 @@ async function addminsupdateitem(req,res) {
 
 }
 
+async function userdeleteitem(req,res){
+     try {
+    const { productId } = req.body;
+    const token = req.cookies.usercredentials;
+    const user = getUser(token);
+
+    const foundUser = await users.findOne({ email: user.email });
+    if (!foundUser) return res.status(404).json({ message: "User not found" });
+
+    foundUser.orders = foundUser.orders.filter(
+      (order) => order.item.toString() !== productId
+    );
+
+    await foundUser.save();
+
+    res.json({ success: true, message: "Item removed", orders: foundUser.orders });
+  } catch (error) {
+    console.error("Error removing item:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+}
 // async function sellingproducts(req,res){
 //    try {
     
@@ -227,7 +248,8 @@ export {adminaddsitems,
         mobile,
         addtocart,
         getitemdata,
-        addminsupdateitem
+        addminsupdateitem,
+        userdeleteitem
 }
 
 
